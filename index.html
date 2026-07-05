@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VenciApp — Facturá en segundos desde el PDF de Mercado Pago</title>
+  <meta name="description" content="VenciApp automatiza tu facturación electrónica. Subís el PDF de Mercado Pago, tildás los cobros y Venci emite todo a ARCA en segundos. Probalo gratis 30 días.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Rubik:wght@500;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --azul:     #0F2A4D;
+      --azulMid:  #173A66;
+      --verde:    #3DAA8A;
+      --verdeDim: rgba(61,170,138,0.12);
+      --blanco:   #FFFFFF;
+      --bgClaro:  #F7F9FB;
+      --bgCard:   #FFFFFF;
+      --texto:    #16243A;
+      --textoDim: #5B7088;
+      --border:   #E2E8EF;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--texto); background: var(--blanco); }
+    .rubik { font-family: 'Rubik', sans-serif; }
+
+    /* ── NAV ────────────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(15,42,77,0.97); backdrop-filter: blur(8px);
+      padding: 0 5%;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+      border-bottom: 1px solid rgba(61,170,138,0.2);
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo img { height: 36px; }
+    .nav-logo span { font-family: 'Rubik', sans-serif; font-weight: 700; font-size: 18px; color: var(--blanco); }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.15s; }
+    .nav-links a:hover { color: var(--verde); }
+    .nav-cta {
+      background: var(--verde); color: #fff; border: none; border-radius: 8px;
+      padding: 9px 20px; font-size: 14px; font-weight: 700; cursor: pointer;
+      font-family: 'Inter', sans-serif; text-decoration: none;
+      transition: opacity 0.15s, transform 0.1s;
+    }
+    .nav-cta:hover { opacity: 0.9; transform: translateY(-1px); }
+
+    /* ── HERO ───────────────────────────────────────────── */
+    .hero {
+      background: var(--azul);
+      padding: 140px 5% 100px;
+      position: relative; overflow: hidden;
+    }
+    .hero-diagonal {
+      position: absolute; top: 0; right: 0; height: 100%; width: 45%;
+      background: linear-gradient(135deg, transparent 30%, rgba(61,170,138,0.06) 100%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+    }
+    .hero-eyebrow {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+      color: var(--verde); text-transform: uppercase; margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-family: 'Rubik', sans-serif; font-weight: 800;
+      font-size: clamp(36px, 4.5vw, 54px); line-height: 1.1;
+      color: var(--blanco); margin-bottom: 20px;
+    }
+    .hero h1 span { color: var(--verde); }
+    .hero-sub {
+      font-size: 17px; line-height: 1.7; color: rgba(255,255,255,0.7);
+      margin-bottom: 36px; max-width: 480px;
+    }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--verde); color: #fff; border: none; border-radius: 10px;
+      padding: 14px 28px; font-size: 15px; font-weight: 700; cursor: pointer;
+      font-family: 'Inter', sans-serif; text-decoration: none;
+      box-shadow: 0 4px 20px rgba(61,170,138,0.35);
+      transition: opacity 0.15s, transform 0.1s;
+    }
+    .btn-primary:hover { opacity: 0.9; transform: translateY(-2px); }
+    .btn-ghost {
+      background: transparent; color: rgba(255,255,255,0.8);
+      border: 1.5px solid rgba(255,255,255,0.25); border-radius: 10px;
+      padding: 14px 28px; font-size: 15px; font-weight: 600; cursor: pointer;
+      font-family: 'Inter', sans-serif; text-decoration: none;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .btn-ghost:hover { border-color: var(--verde); color: var(--verde); }
+    .hero-trust {
+      display: flex; align-items: center; gap: 8px;
+      margin-top: 24px; font-size: 13px; color: rgba(255,255,255,0.45);
+    }
+    .hero-trust span { color: var(--verde); }
+
+    /* ── FLUJO ANIMADO ──────────────────────────────────── */
+    .hero-demo {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(61,170,138,0.2);
+      border-radius: 16px; padding: 28px;
+      display: flex; flex-direction: column; gap: 12px;
+    }
+    .demo-step {
+      display: flex; align-items: center; gap: 14px;
+      background: rgba(255,255,255,0.04); border-radius: 10px;
+      padding: 14px 16px; border: 1px solid rgba(255,255,255,0.07);
+      opacity: 0; transform: translateY(8px);
+      animation: fadeStep 0.5s ease forwards;
+    }
+    .demo-step:nth-child(1) { animation-delay: 0.2s; }
+    .demo-step:nth-child(2) { animation-delay: 0.6s; }
+    .demo-step:nth-child(3) { animation-delay: 1.0s; }
+    .demo-step:nth-child(4) { animation-delay: 1.4s; }
+    @keyframes fadeStep {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .demo-icon {
+      width: 38px; height: 38px; border-radius: 9px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; flex-shrink: 0;
+    }
+    .demo-icon.pdf    { background: rgba(61,170,138,0.15); }
+    .demo-icon.check  { background: rgba(61,170,138,0.15); }
+    .demo-icon.arca   { background: rgba(61,170,138,0.15); }
+    .demo-icon.ok     { background: rgba(61,170,138,0.25); }
+    .demo-text { font-size: 13.5px; color: rgba(255,255,255,0.85); font-weight: 500; }
+    .demo-sub  { font-size: 11px; color: rgba(255,255,255,0.4); margin-top: 2px; }
+    .demo-badge {
+      margin-left: auto; background: var(--verdeDim);
+      border: 1px solid rgba(61,170,138,0.35);
+      color: var(--verde); font-size: 10px; font-weight: 700;
+      padding: 3px 9px; border-radius: 20px; white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* ── DIAGONAL SEPARADOR ─────────────────────────────── */
+    .diagonal {
+      height: 80px; overflow: hidden; position: relative;
+    }
+    .diagonal svg { position: absolute; bottom: 0; width: 100%; }
+
+    /* ── SECCIÓN DOLOR ──────────────────────────────────── */
+    .seccion { padding: 80px 5%; }
+    .seccion-inner { max-width: 1100px; margin: 0 auto; }
+    .seccion-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+      color: var(--verde); text-transform: uppercase; margin-bottom: 14px;
+    }
+    .seccion h2 {
+      font-family: 'Rubik', sans-serif; font-weight: 800;
+      font-size: clamp(28px, 3vw, 40px); line-height: 1.2;
+      margin-bottom: 14px;
+    }
+    .seccion-sub {
+      font-size: 16px; color: var(--textoDim); line-height: 1.7;
+      max-width: 540px; margin-bottom: 48px;
+    }
+    .dolor-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    .dolor-card {
+      background: var(--bgClaro); border: 1px solid var(--border);
+      border-radius: 12px; padding: 22px 20px;
+    }
+    .dolor-x { color: #E0524E; font-size: 18px; margin-bottom: 10px; }
+    .dolor-card p { font-size: 14px; color: var(--textoDim); line-height: 1.6; }
+    .dolor-card strong { color: var(--texto); }
+
+    /* ── CÓMO FUNCIONA ──────────────────────────────────── */
+    .como { background: var(--azul); padding: 80px 5%; }
+    .como-inner { max-width: 1100px; margin: 0 auto; }
+    .como .seccion-label { color: var(--verde); }
+    .como h2 { color: var(--blanco); }
+    .como .seccion-sub { color: rgba(255,255,255,0.6); }
+    .pasos {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+      margin-top: 48px;
+    }
+    .paso {
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(61,170,138,0.2);
+      border-radius: 14px; padding: 28px 24px;
+      position: relative;
+    }
+    .paso-num {
+      font-family: 'Rubik', sans-serif; font-weight: 800;
+      font-size: 48px; color: rgba(61,170,138,0.15);
+      line-height: 1; margin-bottom: 16px;
+    }
+    .paso h3 {
+      font-size: 17px; font-weight: 700; color: var(--blanco); margin-bottom: 10px;
+    }
+    .paso p { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.7; }
+    .paso-icon { font-size: 28px; margin-bottom: 14px; }
+
+    /* ── PLANES ─────────────────────────────────────────── */
+    .planes { background: var(--bgClaro); padding: 80px 5%; }
+    .planes-inner { max-width: 1100px; margin: 0 auto; }
+    .planes-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+      margin-top: 48px;
+    }
+    .plan-card {
+      background: var(--bgCard); border: 1.5px solid var(--border);
+      border-radius: 16px; padding: 32px 28px;
+      display: flex; flex-direction: column; gap: 20px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .plan-card:hover { border-color: var(--verde); transform: translateY(-4px); }
+    .plan-card.destacado {
+      border-color: var(--verde);
+      background: linear-gradient(180deg, rgba(61,170,138,0.04) 0%, #fff 100%);
+      position: relative;
+    }
+    .plan-badge {
+      position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+      background: var(--verde); color: #fff; font-size: 11px; font-weight: 700;
+      padding: 4px 14px; border-radius: 20px; white-space: nowrap;
+    }
+    .plan-nombre { font-size: 13px; font-weight: 700; color: var(--textoDim); text-transform: uppercase; letter-spacing: 0.08em; }
+    .plan-precio {
+      display: flex; align-items: baseline; gap: 6px;
+    }
+    .plan-precio-num {
+      font-family: 'Rubik', sans-serif; font-weight: 800; font-size: 38px; color: var(--texto);
+    }
+    .plan-precio-mes { font-size: 14px; color: var(--textoDim); }
+    .plan-limite {
+      font-size: 13.5px; color: var(--verde); font-weight: 600;
+      background: var(--verdeDim); padding: 6px 12px; border-radius: 6px;
+      display: inline-block;
+    }
+    .plan-features { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .plan-features li {
+      font-size: 13.5px; color: var(--textoDim); display: flex; gap: 8px; align-items: flex-start;
+    }
+    .plan-features li::before { content: "✓"; color: var(--verde); font-weight: 700; flex-shrink: 0; }
+    .plan-cta {
+      display: block; text-align: center; text-decoration: none;
+      background: var(--verde); color: #fff; border-radius: 10px;
+      padding: 13px; font-size: 14px; font-weight: 700;
+      margin-top: auto;
+      transition: opacity 0.15s;
+    }
+    .plan-cta:hover { opacity: 0.88; }
+    .plan-cta.ghost {
+      background: transparent; color: var(--verde);
+      border: 1.5px solid var(--verde);
+    }
+    .plan-gratis {
+      text-align: center; font-size: 12px; color: var(--textoDim); margin-top: 8px;
+    }
+
+    /* ── TESTIMONIO ─────────────────────────────────────── */
+    .testimonio { background: var(--azul); padding: 80px 5%; }
+    .testimonio-inner { max-width: 760px; margin: 0 auto; text-align: center; }
+    .testimonio blockquote {
+      font-family: 'Rubik', sans-serif; font-weight: 700;
+      font-size: clamp(22px, 3vw, 32px); color: var(--blanco);
+      line-height: 1.35; margin-bottom: 28px;
+    }
+    .testimonio blockquote span { color: var(--verde); }
+    .testimonio-autor {
+      display: flex; align-items: center; justify-content: center; gap: 14px;
+    }
+    .autor-avatar {
+      width: 46px; height: 46px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--azulMid), var(--verde));
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; color: #fff; font-size: 16px;
+    }
+    .autor-info { text-align: left; }
+    .autor-nombre { font-size: 14px; font-weight: 700; color: var(--blanco); }
+    .autor-cargo { font-size: 12px; color: rgba(255,255,255,0.45); }
+
+    /* ── CTA FINAL ──────────────────────────────────────── */
+    .cta-final { padding: 100px 5%; text-align: center; }
+    .cta-final h2 {
+      font-family: 'Rubik', sans-serif; font-weight: 800;
+      font-size: clamp(30px, 3.5vw, 46px); margin-bottom: 16px;
+    }
+    .cta-final h2 span { color: var(--verde); }
+    .cta-final p { font-size: 16px; color: var(--textoDim); margin-bottom: 36px; }
+    .cta-final .btn-primary { font-size: 16px; padding: 16px 36px; }
+
+    /* ── FOOTER ─────────────────────────────────────────── */
+    footer {
+      background: var(--azul); padding: 40px 5%;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 16px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    footer .logo { display: flex; align-items: center; gap: 8px; }
+    footer .logo span { font-family: 'Rubik', sans-serif; font-weight: 700; color: var(--blanco); font-size: 15px; }
+    footer p { font-size: 12px; color: rgba(255,255,255,0.35); }
+    footer a { color: rgba(255,255,255,0.45); text-decoration: none; font-size: 13px; }
+    footer a:hover { color: var(--verde); }
+    .footer-links { display: flex; gap: 24px; }
+
+    /* ── RESPONSIVE ─────────────────────────────────────── */
+    @media (max-width: 860px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-demo { display: none; }
+      .pasos { grid-template-columns: 1fr; }
+      .planes-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      footer { flex-direction: column; text-align: center; }
+      .footer-links { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">
+    <img src="/VENCIApp.png" alt="Venci" onerror="this.style.display='none'">
+    <span>VenciApp</span>
+  </a>
+  <div class="nav-links">
+    <a href="#como-funciona">Cómo funciona</a>
+    <a href="#planes">Planes</a>
+    <a href="mailto:lucasarnguiz@gmail.com">Contacto</a>
+  </div>
+  <div style="display:flex;gap:10px;align-items:center;">
+    <a href="/app" style="color:rgba(255,255,255,0.7);text-decoration:none;font-size:14px;font-weight:500;transition:color 0.15s;" onmouseover="this.style.color='#3DAA8A'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Iniciar sesión</a>
+    <a href="/app?registro=true" class="nav-cta">Crear cuenta gratis →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-diagonal"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow">Facturación electrónica automatizada</div>
+      <h1 class="rubik">
+        Facturás en<br>
+        <span>segundos.</span><br>
+        Sin errores.
+      </h1>
+      <p class="hero-sub">
+        Subís el PDF de Mercado Pago, tildás los cobros que querés facturar, 
+        y VenciApp los emite a ARCA automáticamente con CAE real.
+        Sin tipear nada.
+      </p>
+      <div class="hero-actions">
+        <a href="/app?registro=true" class="btn-primary">Probalo gratis 30 días</a>
+        <a href="#como-funciona" class="btn-ghost">Ver cómo funciona</a>
+      </div>
+      <div class="hero-trust">
+        <span>✓</span> Sin tarjeta de crédito &nbsp;·&nbsp;
+        <span>✓</span> Directo a ARCA &nbsp;·&nbsp;
+        <span>✓</span> CAE real en segundos
+      </div>
+    </div>
+    <div class="hero-demo">
+      <div class="demo-step">
+        <div class="demo-icon pdf">📄</div>
+        <div>
+          <div class="demo-text">Resumen_MercadoPago_Junio.pdf</div>
+          <div class="demo-sub">47 movimientos encontrados</div>
+        </div>
+        <div class="demo-badge">Subido</div>
+      </div>
+      <div class="demo-step">
+        <div class="demo-icon check">☑</div>
+        <div>
+          <div class="demo-text">38 cobros seleccionados</div>
+          <div class="demo-sub">Categoría: Cortes de carne de ave</div>
+        </div>
+        <div class="demo-badge">Listo</div>
+      </div>
+      <div class="demo-step">
+        <div class="demo-icon arca">⚡</div>
+        <div>
+          <div class="demo-text">Emitiendo a ARCA...</div>
+          <div class="demo-sub">Factura C · Consumidor Final</div>
+        </div>
+        <div class="demo-badge">Procesando</div>
+      </div>
+      <div class="demo-step">
+        <div class="demo-icon ok">✅</div>
+        <div>
+          <div class="demo-text">38 facturas emitidas</div>
+          <div class="demo-sub">CAE 86261655009012 · válido hasta 11/07</div>
+        </div>
+        <div class="demo-badge" style="background:rgba(61,170,138,0.3)">Aprobado</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECCIÓN: EL PROBLEMA -->
+<section class="seccion" id="problema">
+  <div class="seccion-inner">
+    <div class="seccion-label">El problema</div>
+    <h2>Facturar a mano le cuesta<br>horas a tu estudio cada mes</h2>
+    <p class="seccion-sub">
+      Cada cobro de Mercado Pago es una factura que alguien tiene que cargar en ARCA. 
+      Con decenas de clientes, eso son días de trabajo perdido.
+    </p>
+    <div class="dolor-grid">
+      <div class="dolor-card">
+        <div class="dolor-x">✗</div>
+        <p><strong>Cargar cada factura a mano</strong> — fecha, monto, CUIT, categoría. Una por una.</p>
+      </div>
+      <div class="dolor-card">
+        <div class="dolor-x">✗</div>
+        <p><strong>Errores de tipeo</strong> que ARCA rechaza y hay que corregir de cero.</p>
+      </div>
+      <div class="dolor-card">
+        <div class="dolor-x">✗</div>
+        <p><strong>Cruzar el PDF de MP</strong> con lo que ya se facturó para no duplicar.</p>
+      </div>
+      <div class="dolor-card">
+        <div class="dolor-x">✗</div>
+        <p><strong>Gestionar certificados</strong> de cada cliente por separado en ARCA.</p>
+      </div>
+      <div class="dolor-card">
+        <div class="dolor-x">✗</div>
+        <p><strong>No saber cuánto facturó</strong> cada cliente ni si se acerca al límite de categoría.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIAGONAL -->
+<div class="diagonal" style="background:#f7f9fb">
+  <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <polygon points="0,80 1440,0 1440,80" fill="#0F2A4D"/>
+  </svg>
+</div>
+
+<!-- SECCIÓN: CÓMO FUNCIONA -->
+<section class="como" id="como-funciona">
+  <div class="como-inner">
+    <div class="seccion-label">Cómo funciona</div>
+    <h2 class="rubik" style="color:white">Tres pasos.<br>Cero errores.</h2>
+    <p class="seccion-sub">
+      No hay nada que aprender. Si sabés descargar un PDF de Mercado Pago, 
+      ya sabés usar VenciApp.
+    </p>
+    <div class="pasos">
+      <div class="paso">
+        <div class="paso-icon">📄</div>
+        <div class="paso-num">01</div>
+        <h3>Subís el PDF</h3>
+        <p>Descargás el resumen de ventas de Mercado Pago y lo subís a VenciApp. El sistema lee automáticamente todos los cobros del período.</p>
+      </div>
+      <div class="paso">
+        <div class="paso-icon">☑</div>
+        <div class="paso-num">02</div>
+        <h3>Elegís qué facturar</h3>
+        <p>Tildás los cobros que querés incluir, elegís la categoría de producto o servicio, y aplicás a todos en un solo clic si son iguales.</p>
+      </div>
+      <div class="paso">
+        <div class="paso-icon">⚡</div>
+        <div class="paso-num">03</div>
+        <h3>ARCA aprueba al instante</h3>
+        <p>VenciApp emite todas las facturas a ARCA por webservice oficial. Recibís el CAE real de cada una en segundos, listo para descargar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIAGONAL -->
+<div class="diagonal" style="background:#0F2A4D">
+  <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <polygon points="0,0 1440,80 1440,0" fill="#F7F9FB"/>
+    <polygon points="0,0 1440,30 1440,0 0,0" fill="#3DAA8A" opacity="0.6"/>
+  </svg>
+</div>
+
+<!-- SECCIÓN: PLANES -->
+<section class="planes" id="planes">
+  <div class="planes-inner">
+    <div class="seccion-label">Planes y precios</div>
+    <h2>Empezá gratis.<br>Crecé cuando quieras.</h2>
+    <p class="seccion-sub">
+      30 días de prueba gratuita, sin tarjeta de crédito. 
+      Después elegís el plan que se adapta a tu estudio.
+    </p>
+    <div class="planes-grid">
+
+      <!-- BÁSICO -->
+      <div class="plan-card">
+        <div class="plan-nombre">Básico</div>
+        <div class="plan-precio">
+          <div class="plan-precio-num">$15.000</div>
+          <div class="plan-precio-mes">/mes</div>
+        </div>
+        <div class="plan-limite">Hasta 50 facturas/mes</div>
+        <ul class="plan-features">
+          <li>Hasta 5 clientes activos</li>
+          <li>Lectura de PDF de Mercado Pago</li>
+          <li>Emisión directa a ARCA</li>
+          <li>Historial de facturas con CAE</li>
+          <li>Soporte por email</li>
+        </ul>
+        <a href="/app?registro=true&plan=basico" class="plan-cta ghost">Empezar gratis</a>
+        <p class="plan-gratis">30 días sin cargo</p>
+      </div>
+
+      <!-- PROFESIONAL -->
+      <div class="plan-card destacado">
+        <div class="plan-badge">Más popular</div>
+        <div class="plan-nombre">Profesional</div>
+        <div class="plan-precio">
+          <div class="plan-precio-num">$35.000</div>
+          <div class="plan-precio-mes">/mes</div>
+        </div>
+        <div class="plan-limite">Hasta 200 facturas/mes</div>
+        <ul class="plan-features">
+          <li>Clientes ilimitados</li>
+          <li>PDF de Mercado Pago y NaranjaX</li>
+          <li>Categoría global para lotes masivos</li>
+          <li>Re-emisión de facturas rechazadas</li>
+          <li>Alertas de límite de categoría</li>
+          <li>Soporte prioritario</li>
+        </ul>
+        <a href="/app?registro=true&plan=profesional" class="plan-cta">Empezar gratis</a>
+        <p class="plan-gratis">30 días sin cargo</p>
+      </div>
+
+      <!-- CORPORATIVO -->
+      <div class="plan-card">
+        <div class="plan-nombre">Corporativo</div>
+        <div class="plan-precio">
+          <div class="plan-precio-num">$70.000</div>
+          <div class="plan-precio-mes">/mes</div>
+        </div>
+        <div class="plan-limite">Facturas ilimitadas</div>
+        <ul class="plan-features">
+          <li>Todo lo del plan Profesional</li>
+          <li>Múltiples usuarios por estudio</li>
+          <li>Exportación a Holistor / CSV</li>
+          <li>Conciliación bancaria automática</li>
+          <li>Más formatos de PDF (bancos)</li>
+          <li>Soporte directo por WhatsApp</li>
+        </ul>
+        <a href="/app?registro=true&plan=corporativo" class="plan-cta ghost">Empezar gratis</a>
+        <p class="plan-gratis">30 días sin cargo</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIO -->
+<section class="testimonio">
+  <div class="testimonio-inner">
+    <div class="seccion-label" style="text-align:center;margin-bottom:32px">Lo que dicen nuestros usuarios</div>
+    <blockquote>
+      "Antes me llevaba horas cargar las facturas de cada cliente.
+      Con VenciApp subí el PDF y en <span>segundos tenía 100 facturas emitidas</span> 
+      con CAE real. No lo podía creer."
+    </blockquote>
+    <div class="testimonio-autor">
+      <div class="autor-avatar">DB</div>
+      <div class="autor-info">
+        <div class="autor-nombre">Dariela Bregant</div>
+        <div class="autor-cargo">Contadora · CPCECF 4821 · Entre Ríos</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-final">
+  <h2 class="rubik">
+    Tu primer mes es<br><span>completamente gratis.</span>
+  </h2>
+  <p>Sin tarjeta de crédito. Sin compromisos. Empezás a facturar en minutos.</p>
+  <a href="/app?registro=true" class="btn-primary">Crear cuenta gratis</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="logo">
+    <img src="/VENCIApp.png" alt="Venci" height="28" onerror="this.style.display='none'">
+    <span>VenciApp</span>
+  </div>
+  <p>© 2026 VenciApp · Santa Elena, Entre Ríos · Argentina</p>
+  <div class="footer-links">
+    <a href="mailto:lucasarnguiz@gmail.com">Contacto</a>
+    <a href="tel:+543437456068">343 745 6068</a>
+    <a href="/app">Ingresar</a>
+  </div>
+</footer>
+
+</body>
+</html>
