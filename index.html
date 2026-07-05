@@ -343,6 +343,14 @@
     .footer-links a { color: rgba(255,255,255,0.4); text-decoration: none; font-size: 13px; transition: color 0.15s; }
     .footer-links a:hover { color: var(--verde); }
 
+    /* ── TABS MOCKUP ── */
+    .mock-tab {
+      flex:1; padding:8px 4px; font-size:9.5px; font-weight:600;
+      text-align:center; color:rgba(255,255,255,0.3); cursor:pointer;
+      border-bottom:2px solid transparent; transition:all 0.2s;
+    }
+    .mock-tab.active { color:#3DAA8A; border-bottom-color:#3DAA8A; }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 860px) {
       .hero-inner, .pasos, .planes-grid { grid-template-columns: 1fr; }
@@ -412,7 +420,7 @@
       </div>
     </div>
 
-    <!-- MOCKUP ANIMADO -->
+    <!-- MOCKUP ANIMADO — 3 modos rotando -->
     <div class="mockup-wrap">
       <div class="mockup">
         <div class="mockup-bar">
@@ -421,36 +429,24 @@
           <div class="dot dot-g"></div>
           <div class="mockup-url">venciapp.com.ar/app</div>
         </div>
-        <div class="mockup-body">
+        <!-- Tabs -->
+        <div style="display:flex;border-bottom:1px solid rgba(255,255,255,0.06);">
+          <div class="mock-tab active" id="mt0" onclick="mockTab(0)">📄 Facturación</div>
+          <div class="mock-tab" id="mt1" onclick="mockTab(1)">🧾 Factura ARCA</div>
+          <div class="mock-tab" id="mt2" onclick="mockTab(2)">🗂 Historial</div>
+        </div>
+
+        <!-- MODO 1: PDF -->
+        <div class="mock-panel" id="mp0" style="padding:16px;">
           <div class="mock-header">
-            <div class="mock-title">📄 Facturación MP · Leandro Espíndola</div>
-            <div class="mock-badge">7 cobros</div>
+            <div class="mock-title">📄 García Ventas · QR</div>
+            <div class="mock-badge">5 cobros</div>
           </div>
-          <div class="mock-row">
-            <div class="mock-check on">✓</div>
-            <div class="mock-desc">Pago QR · 08/06/2026</div>
-            <div class="mock-monto">+$1.600</div>
-          </div>
-          <div class="mock-row">
-            <div class="mock-check on">✓</div>
-            <div class="mock-desc">Pago QR · 09/06/2026</div>
-            <div class="mock-monto">+$18.000</div>
-          </div>
-          <div class="mock-row">
-            <div class="mock-check on">✓</div>
-            <div class="mock-desc">Pago QR · 10/06/2026</div>
-            <div class="mock-monto">+$18.000</div>
-          </div>
-          <div class="mock-row">
-            <div class="mock-check on">✓</div>
-            <div class="mock-desc">Pago QR · 13/06/2026</div>
-            <div class="mock-monto">+$7.400</div>
-          </div>
-          <div class="mock-row">
-            <div class="mock-check on">✓</div>
-            <div class="mock-desc">Pago QR · 16/06/2026</div>
-            <div class="mock-monto">+$18.000</div>
-          </div>
+          <div class="mock-row"><div class="mock-check on">✓</div><div class="mock-desc">Pago QR · 08/06</div><div class="mock-monto">+$1.600</div></div>
+          <div class="mock-row"><div class="mock-check on">✓</div><div class="mock-desc">Pago QR · 09/06</div><div class="mock-monto">+$18.000</div></div>
+          <div class="mock-row"><div class="mock-check on">✓</div><div class="mock-desc">Pago QR · 10/06</div><div class="mock-monto">+$18.000</div></div>
+          <div class="mock-row"><div class="mock-check on">✓</div><div class="mock-desc">Pago QR · 13/06</div><div class="mock-monto">+$7.400</div></div>
+          <div class="mock-row"><div class="mock-check on">✓</div><div class="mock-desc">Pago QR · 16/06</div><div class="mock-monto">+$18.000</div></div>
           <div class="mock-footer">⚡ Emitir 5 facturas a ARCA</div>
           <div class="mock-result">
             <span style="font-size:14px">✅</span>
@@ -458,6 +454,88 @@
               <div class="mock-cae">CAE 86261655009012</div>
               <div style="font-size:10px;color:rgba(255,255,255,0.35);margin-top:2px">5 facturas aprobadas · válido hasta 15/07</div>
             </div>
+          </div>
+        </div>
+
+        <!-- MODO 2: Factura real -->
+        <div class="mock-panel" id="mp1" style="padding:12px;display:none;">
+          <div style="background:#fff;border-radius:8px;padding:14px;">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid #E2E8EF;">
+              <div>
+                <div style="font-family:'Rubik',sans-serif;font-weight:800;font-size:13px;color:#0F2A4D;">Venci<span style="color:#3DAA8A">App</span></div>
+                <div style="font-size:8px;color:#8896A8;margin-top:2px;">Factura electrónica oficial</div>
+              </div>
+              <div style="text-align:right;">
+                <div style="background:#0F2A4D;color:#fff;font-size:10px;font-weight:700;padding:3px 8px;border-radius:4px;">Factura C</div>
+                <div style="font-size:8px;color:#8896A8;margin-top:3px;">N° 00005-00000089</div>
+              </div>
+            </div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:4px;"><span style="font-size:9px;color:#8896A8;">Emisor</span><span style="font-size:9px;font-weight:600;color:#16243A;">Martínez Comercio</span></div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:4px;"><span style="font-size:9px;color:#8896A8;">CUIT</span><span style="font-size:9px;font-weight:600;color:#16243A;">20-28374615-4</span></div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:4px;"><span style="font-size:9px;color:#8896A8;">Cliente</span><span style="font-size:9px;font-weight:600;color:#16243A;">Consumidor Final</span></div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:4px;"><span style="font-size:9px;color:#8896A8;">Concepto</span><span style="font-size:9px;font-weight:600;color:#16243A;">Cortes de carne de ave</span></div>
+            <div style="text-align:center;padding:10px 0;margin:8px 0;border-top:1px solid #E2E8EF;border-bottom:1px solid #E2E8EF;">
+              <div style="font-size:8px;color:#8896A8;margin-bottom:4px;">TOTAL</div>
+              <div style="font-family:'Rubik',sans-serif;font-weight:800;font-size:20px;color:#16243A;">$ 18.000,00</div>
+            </div>
+            <div style="display:flex;gap:10px;align-items:center;margin-top:10px;">
+              <svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
+                <rect width="48" height="48" fill="white"/>
+                <rect x="2" y="2" width="18" height="18" fill="none" stroke="#0F2A4D" stroke-width="2"/>
+                <rect x="5" y="5" width="12" height="12" fill="#0F2A4D"/>
+                <rect x="28" y="2" width="18" height="18" fill="none" stroke="#0F2A4D" stroke-width="2"/>
+                <rect x="31" y="5" width="12" height="12" fill="#0F2A4D"/>
+                <rect x="2" y="28" width="18" height="18" fill="none" stroke="#0F2A4D" stroke-width="2"/>
+                <rect x="5" y="31" width="12" height="12" fill="#0F2A4D"/>
+                <rect x="28" y="28" width="4" height="4" fill="#0F2A4D"/>
+                <rect x="34" y="28" width="4" height="4" fill="#0F2A4D"/>
+                <rect x="40" y="28" width="6" height="4" fill="#0F2A4D"/>
+                <rect x="28" y="34" width="6" height="4" fill="#0F2A4D"/>
+                <rect x="36" y="34" width="4" height="4" fill="#0F2A4D"/>
+                <rect x="28" y="40" width="4" height="6" fill="#0F2A4D"/>
+                <rect x="34" y="42" width="12" height="4" fill="#0F2A4D"/>
+                <rect x="20" y="20" width="4" height="4" fill="#0F2A4D"/>
+                <rect x="24" y="24" width="4" height="4" fill="#0F2A4D"/>
+              </svg>
+              <div style="font-size:8px;color:#8896A8;line-height:1.6;">
+                <div>CAE</div>
+                <div style="color:#3DAA8A;font-weight:700;font-size:9px;">86261655009012</div>
+                <div style="margin-top:3px;">Vence: 18/06/2026</div>
+                <div style="margin-top:3px;color:#3DAA8A;font-weight:700;">✓ ARCA Verificado</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MODO 3: Historial -->
+        <div class="mock-panel" id="mp2" style="padding:16px;display:none;">
+          <div class="mock-header">
+            <div class="mock-title">🗂 Historial · Julio 2026</div>
+            <div class="mock-badge" style="color:#4ADE80;border-color:rgba(74,222,128,0.3);">23 facturas</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,0.05);">
+            <div style="width:30px;height:30px;border-radius:7px;background:rgba(61,170,138,0.12);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;">🥩</div>
+            <div style="flex:1;"><div style="font-size:11px;font-weight:600;color:rgba(255,255,255,0.8);">Rodríguez Carnes</div><div style="font-size:9px;color:rgba(255,255,255,0.3);margin-top:2px;">03/07 · Cortes de ave</div></div>
+            <div style="text-align:right;"><div style="font-size:11px;font-weight:700;color:#4ADE80;">$37.000</div><div style="font-size:8px;color:rgba(255,255,255,0.25);font-family:monospace;">CAE ✓</div></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,0.05);">
+            <div style="width:30px;height:30px;border-radius:7px;background:rgba(61,170,138,0.12);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;">👕</div>
+            <div style="flex:1;"><div style="font-size:11px;font-weight:600;color:rgba(255,255,255,0.8);">Fernández Ropa</div><div style="font-size:9px;color:rgba(255,255,255,0.3);margin-top:2px;">03/07 · Prendas de vestir</div></div>
+            <div style="text-align:right;"><div style="font-size:11px;font-weight:700;color:#4ADE80;">$51.001</div><div style="font-size:8px;color:rgba(255,255,255,0.25);font-family:monospace;">CAE ✓</div></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,0.05);">
+            <div style="width:30px;height:30px;border-radius:7px;background:rgba(61,170,138,0.12);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;">🥩</div>
+            <div style="flex:1;"><div style="font-size:11px;font-weight:600;color:rgba(255,255,255,0.8);">López Mercado</div><div style="font-size:9px;color:rgba(255,255,255,0.3);margin-top:2px;">02/07 · Cortes de ave</div></div>
+            <div style="text-align:right;"><div style="font-size:11px;font-weight:700;color:#4ADE80;">$23.000</div><div style="font-size:8px;color:rgba(255,255,255,0.25);font-family:monospace;">CAE ✓</div></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;padding:9px 0;">
+            <div style="width:30px;height:30px;border-radius:7px;background:rgba(61,170,138,0.12);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;">⚡</div>
+            <div style="flex:1;"><div style="font-size:11px;font-weight:600;color:rgba(255,255,255,0.8);">García Ventas</div><div style="font-size:9px;color:rgba(255,255,255,0.3);margin-top:2px;">02/07 · Pago QR</div></div>
+            <div style="text-align:right;"><div style="font-size:11px;font-weight:700;color:#4ADE80;">$18.000</div><div style="font-size:8px;color:rgba(255,255,255,0.25);font-family:monospace;">CAE ✓</div></div>
+          </div>
+          <div style="margin-top:10px;background:rgba(61,170,138,0.08);border:1px solid rgba(61,170,138,0.2);border-radius:7px;padding:8px 10px;display:flex;justify-content:space-between;align-items:center;">
+            <span style="font-size:10px;color:rgba(255,255,255,0.5);">Total julio</span>
+            <span style="font-size:13px;font-weight:700;color:#3DAA8A;font-family:'Rubik',sans-serif;">$619.891</span>
           </div>
         </div>
       </div>
@@ -876,6 +954,21 @@ window.addEventListener('scroll', () => {
   document.getElementById('nav').style.background =
     window.scrollY > 20 ? 'rgba(10,30,54,0.98)' : 'rgba(10,30,54,0.95)';
 });
+
+// ── MOCKUP TABS ──────────────────────────────────────────────────────────────
+var mockCurrent = 0;
+function mockTab(i) {
+  [0,1,2].forEach(function(j) {
+    var t = document.getElementById('mt'+j);
+    var p = document.getElementById('mp'+j);
+    if (t) t.classList.toggle('active', j===i);
+    if (p) p.style.display = j===i ? 'block' : 'none';
+  });
+  mockCurrent = i;
+}
+setInterval(function() {
+  mockTab((mockCurrent + 1) % 3);
+}, 4000);
 </script>
 </body>
 </html>
