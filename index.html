@@ -796,20 +796,134 @@
 })();
 </script>
 
-<!-- TESTIMONIO -->
-<section class="testi">
-  <div class="testi-inner">
-    <div class="testi-stars reveal">★★★★★</div>
-    <blockquote class="reveal">
-      "Antes me llevaba horas cargar las facturas de cada cliente.
-      Con VenciApp subí el PDF y en <em>segundos tenía 100 facturas emitidas</em>
-      con CAE real. No lo podía creer."
-    </blockquote>
-    <div class="testi-autor reveal">
-      <div class="testi-avatar">DB</div>
-      <div>
-        <div class="testi-nombre">Dariela Bregant</div>
-        <div class="testi-cargo">Contadora · CPCECF 4821 · Entre Ríos</div>
+<!-- CLIENTES -->
+<section style="background:var(--azulD);padding:60px 5%;">
+  <div style="max-width:1100px;margin:0 auto;text-align:center;">
+    <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;color:rgba(255,255,255,0.35);text-transform:uppercase;margin-bottom:32px;">Ya confían en VenciApp</div>
+    <div style="display:flex;justify-content:center;align-items:center;gap:48px;flex-wrap:wrap;">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:10px;">
+        <div style="width:64px;height:64px;border-radius:14px;background:rgba(61,170,138,0.12);border:1px solid rgba(61,170,138,0.25);display:flex;align-items:center;justify-content:center;font-family:'Rubik',sans-serif;font-weight:800;font-size:20px;color:#3DAA8A;">DB</div>
+        <div style="text-align:center;">
+          <div style="font-size:13px;font-weight:700;color:rgba(255,255,255,0.8);">Estudio Bregant</div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.35);">Estudio contable · Entre Ríos</div>
+        </div>
+      </div>
+      <div style="width:1px;height:48px;background:rgba(255,255,255,0.08);"></div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:10px;">
+        <div style="width:64px;height:64px;border-radius:14px;background:rgba(61,170,138,0.12);border:1px solid rgba(61,170,138,0.25);display:flex;align-items:center;justify-content:center;font-family:'Rubik',sans-serif;font-weight:800;font-size:20px;color:#3DAA8A;">LE</div>
+        <div style="text-align:center;">
+          <div style="font-size:13px;font-weight:700;color:rgba(255,255,255,0.8);">Espíndola Comercio</div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.35);">Comercio · Entre Ríos</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ERRORES COMUNES -->
+<section style="background:var(--azul);padding:80px 5%;" id="errores">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;color:#3DAA8A;text-transform:uppercase;margin-bottom:14px;">Evitá estos errores</div>
+    <h2 style="font-family:'Rubik',sans-serif;font-weight:800;font-size:clamp(26px,3vw,38px);color:#fff;line-height:1.2;margin-bottom:12px;">Los 3 rechazos más comunes<br>y cómo evitarlos</h2>
+    <p style="font-size:15px;color:rgba(255,255,255,0.5);margin-bottom:40px;max-width:520px;line-height:1.7;">ARCA tiene reglas estrictas. Estos son los errores que más vemos — y cómo VenciApp te ayuda a evitarlos.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;">
+
+      <!-- Error 1 -->
+      <div style="background:#0D1F35;border-radius:14px;border:1px solid rgba(61,170,138,0.2);overflow:hidden;">
+        <div style="background:#091729;padding:10px 14px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(255,255,255,0.05);">
+          <div style="width:10px;height:10px;border-radius:50%;background:#FF5F57;"></div>
+          <div style="width:10px;height:10px;border-radius:50%;background:#FEBC2E;"></div>
+          <div style="width:10px;height:10px;border-radius:50%;background:#28C840;"></div>
+          <span style="font-size:10px;color:rgba(255,255,255,0.3);font-family:monospace;margin-left:4px;">Error ARCA · Código 10015</span>
+        </div>
+        <div style="padding:18px;">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+            <div style="width:32px;height:32px;border-radius:8px;background:rgba(224,82,78,0.15);border:1px solid rgba(224,82,78,0.3);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">📅</div>
+            <div style="font-size:13px;font-weight:700;color:#E0524E;">Fecha fuera de rango</div>
+          </div>
+          <p style="font-size:12px;color:rgba(255,255,255,0.5);line-height:1.7;margin-bottom:14px;">ARCA solo acepta facturas de <strong style="color:rgba(255,255,255,0.8);">hasta 5 días atrás</strong> para Productos y <strong style="color:rgba(255,255,255,0.8);">10 días</strong> para Servicios. Si el movimiento es más viejo, ARCA lo rechaza.</p>
+          <div style="background:rgba(61,170,138,0.08);border:1px solid rgba(61,170,138,0.2);border-radius:8px;padding:10px 12px;display:flex;gap:8px;align-items:flex-start;">
+            <span style="color:#3DAA8A;font-size:13px;flex-shrink:0;">✓</span>
+            <span style="font-size:11px;color:rgba(255,255,255,0.6);">VenciApp detecta automáticamente las facturas rechazadas y las muestra en el Historial con el botón <strong style="color:#3DAA8A;">"Re-emitir"</strong>.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Error 2 -->
+      <div style="background:#0D1F35;border-radius:14px;border:1px solid rgba(61,170,138,0.2);overflow:hidden;">
+        <div style="background:#091729;padding:10px 14px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(255,255,255,0.05);">
+          <div style="width:10px;height:10px;border-radius:50%;background:#FF5F57;"></div>
+          <div style="width:10px;height:10px;border-radius:50%;background:#FEBC2E;"></div>
+          <div style="width:10px;height:10px;border-radius:50%;background:#28C840;"></div>
+          <span style="font-size:10px;color:rgba(255,255,255,0.3);font-family:monospace;margin-left:4px;">Error ARCA · Código 10016</span>
+        </div>
+        <div style="padding:18px;">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+            <div style="width:32px;height:32px;border-radius:8px;background:rgba(224,82,78,0.15);border:1px solid rgba(224,82,78,0.3);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">🔢</div>
+            <div style="font-size:13px;font-weight:700;color:#E0524E;">Orden cronológico roto</div>
+          </div>
+          <p style="font-size:12px;color:rgba(255,255,255,0.5);line-height:1.7;margin-bottom:14px;">ARCA exige que las facturas se emitan <strong style="color:rgba(255,255,255,0.8);">en orden cronológico</strong>. Si ya emitiste una del 25/06 y después intentás emitir una del 22/06, la rechaza.</p>
+          <div style="background:rgba(61,170,138,0.08);border:1px solid rgba(61,170,138,0.2);border-radius:8px;padding:10px 12px;display:flex;gap:8px;align-items:flex-start;">
+            <span style="color:#3DAA8A;font-size:13px;flex-shrink:0;">✓</span>
+            <span style="font-size:11px;color:rgba(255,255,255,0.6);">VenciApp ordena automáticamente los movimientos del PDF de <strong style="color:#3DAA8A;">más antiguo a más reciente</strong> antes de emitir.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Error 3 -->
+      <div style="background:#0D1F35;border-radius:14px;border:1px solid rgba(61,170,138,0.2);overflow:hidden;">
+        <div style="background:#091729;padding:10px 14px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(255,255,255,0.05);">
+          <div style="width:10px;height:10px;border-radius:50%;background:#FF5F57;"></div>
+          <div style="width:10px;height:10px;border-radius:50%;background:#FEBC2E;"></div>
+          <div style="width:10px;height:10px;border-radius:50%;background:#28C840;"></div>
+          <span style="font-size:10px;color:rgba(255,255,255,0.3);font-family:monospace;margin-left:4px;">Error usuario · PDF equivocado</span>
+        </div>
+        <div style="padding:18px;">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+            <div style="width:32px;height:32px;border-radius:8px;background:rgba(224,82,78,0.15);border:1px solid rgba(224,82,78,0.3);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">📄</div>
+            <div style="font-size:13px;font-weight:700;color:#E0524E;">PDF del cliente equivocado</div>
+          </div>
+          <p style="font-size:12px;color:rgba(255,255,255,0.5);line-height:1.7;margin-bottom:14px;">Con muchos clientes es fácil subir el PDF de uno en el perfil de otro. Eso genera facturas <strong style="color:rgba(255,255,255,0.8);">con el CUIT incorrecto</strong>, que ARCA registra mal y no tienen solución fácil.</p>
+          <div style="background:rgba(61,170,138,0.08);border:1px solid rgba(61,170,138,0.2);border-radius:8px;padding:10px 12px;display:flex;gap:8px;align-items:flex-start;">
+            <span style="color:#3DAA8A;font-size:13px;flex-shrink:0;">✓</span>
+            <span style="font-size:11px;color:rgba(255,255,255,0.6);">VenciApp verifica el <strong style="color:#3DAA8A;">CUIT del PDF</strong> contra el cliente seleccionado y avisa antes de que se emita cualquier factura.</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EMPRESAS QUE LO USAN -->
+<section style="background:var(--bg);padding:56px 5%;border-top:1px solid var(--border);">
+  <div style="max-width:1100px;margin:0 auto;text-align:center;">
+    <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;color:var(--dim);text-transform:uppercase;margin-bottom:32px;">Empresas que ya facturan con VenciApp</div>
+    <div style="display:flex;justify-content:center;align-items:center;gap:48px;flex-wrap:wrap;">
+      <!-- Logo Dariela -->
+      <div style="display:flex;align-items:center;gap:12px;padding:16px 24px;background:white;border:1px solid var(--border);border-radius:12px;transition:border-color 0.2s;" onmouseover="this.style.borderColor='#3DAA8A'" onmouseout="this.style.borderColor='var(--border)'">
+        <div style="width:44px;height:44px;border-radius:10px;background:#0F2A4D;display:flex;align-items:center;justify-content:center;font-family:'Rubik',sans-serif;font-weight:800;font-size:16px;color:#3DAA8A;flex-shrink:0;">DB</div>
+        <div style="text-align:left;">
+          <div style="font-weight:700;font-size:14px;color:var(--texto);">Estudio Bregant</div>
+          <div style="font-size:11px;color:var(--dim);">Estudio contable · Entre Ríos</div>
+        </div>
+      </div>
+      <!-- Logo Leandro -->
+      <div style="display:flex;align-items:center;gap:12px;padding:16px 24px;background:white;border:1px solid var(--border);border-radius:12px;transition:border-color 0.2s;" onmouseover="this.style.borderColor='#3DAA8A'" onmouseout="this.style.borderColor='var(--border)'">
+        <div style="width:44px;height:44px;border-radius:10px;background:#0F2A4D;display:flex;align-items:center;justify-content:center;font-family:'Rubik',sans-serif;font-weight:800;font-size:16px;color:#3DAA8A;flex-shrink:0;">LE</div>
+        <div style="text-align:left;">
+          <div style="font-weight:700;font-size:14px;color:var(--texto);">Espíndola Comercio</div>
+          <div style="font-size:11px;color:var(--dim);">Comercio · Entre Ríos</div>
+        </div>
+      </div>
+      <!-- Placeholder -->
+      <div style="display:flex;align-items:center;gap:12px;padding:16px 24px;background:white;border:1px dashed var(--border);border-radius:12px;opacity:0.5;">
+        <div style="width:44px;height:44px;border-radius:10px;background:var(--bg);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">+</div>
+        <div style="text-align:left;">
+          <div style="font-weight:700;font-size:14px;color:var(--dim);">Tu estudio</div>
+          <div style="font-size:11px;color:var(--dim);">Podría estar acá</div>
+        </div>
       </div>
     </div>
   </div>
@@ -823,16 +937,50 @@
 </section>
 
 <!-- FOOTER -->
-<footer>
-  <div class="footer-logo">
-    <img src="/VENCIApp.png" alt="VenciApp" onerror="this.style.display='none'">
-    <span>VenciApp</span>
-  </div>
-  <p>© 2026 VenciApp · Santa Elena, Entre Ríos</p>
-  <div class="footer-links">
-    <a href="mailto:lucasarnguiz@gmail.com">Contacto</a>
-    <a href="tel:+543437456068">343 745 6068</a>
-    <a href="/app">Ingresar</a>
+<footer style="background:var(--azulD);padding:48px 5%;border-top:1px solid rgba(255,255,255,0.06);">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;margin-bottom:36px;flex-wrap:wrap;">
+      <!-- Logo y descripción -->
+      <div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+          <img src="/VENCIApp.png" alt="VenciApp" height="32" onerror="this.style.display='none'">
+          <span style="font-family:'Rubik',sans-serif;font-weight:800;color:white;font-size:17px;">VenciApp</span>
+        </div>
+        <p style="font-size:13px;color:rgba(255,255,255,0.4);line-height:1.7;">Facturación electrónica automática para Argentina. Directo a ARCA, sin errores manuales.</p>
+      </div>
+      <!-- Contacto -->
+      <div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;color:#3DAA8A;text-transform:uppercase;margin-bottom:16px;">Contacto y soporte</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <a href="mailto:lucasarnguiz@gmail.com" style="display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.55);text-decoration:none;font-size:13px;transition:color 0.15s;" onmouseover="this.style.color='#3DAA8A'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">
+            <span style="font-size:15px;">📧</span> lucasarnguiz@gmail.com
+          </a>
+          <a href="tel:+543437456068" style="display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.55);text-decoration:none;font-size:13px;transition:color 0.15s;" onmouseover="this.style.color='#3DAA8A'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">
+            <span style="font-size:15px;">📱</span> 343 745 6068
+          </a>
+          <a href="https://wa.me/543437456068" target="_blank" style="display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.55);text-decoration:none;font-size:13px;transition:color 0.15s;" onmouseover="this.style.color='#3DAA8A'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">
+            <span style="font-size:15px;">💬</span> WhatsApp directo
+          </a>
+          <a href="mailto:lucasarnguiz@gmail.com" style="display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.55);text-decoration:none;font-size:13px;transition:color 0.15s;" onmouseover="this.style.color='#3DAA8A'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">
+            <span style="font-size:15px;">🆘</span> Soporte técnico
+          </a>
+        </div>
+      </div>
+      <!-- Links -->
+      <div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;color:#3DAA8A;text-transform:uppercase;margin-bottom:16px;">Accesos</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <a href="/app?registro=true" style="color:rgba(255,255,255,0.55);text-decoration:none;font-size:13px;transition:color 0.15s;" onmouseover="this.style.color='#3DAA8A'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Crear cuenta gratis</a>
+          <a href="/app" style="color:rgba(255,255,255,0.55);text-decoration:none;font-size:13px;transition:color 0.15s;" onmouseover="this.style.color='#3DAA8A'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Iniciar sesión</a>
+          <a href="#como-funciona" style="color:rgba(255,255,255,0.55);text-decoration:none;font-size:13px;transition:color 0.15s;" onmouseover="this.style.color='#3DAA8A'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Cómo funciona</a>
+          <a href="#planes" style="color:rgba(255,255,255,0.55);text-decoration:none;font-size:13px;transition:color 0.15s;" onmouseover="this.style.color='#3DAA8A'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Precios</a>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,0.06);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+      <p style="font-size:12px;color:rgba(255,255,255,0.25);">© 2026 VenciApp · Santa Elena, Entre Ríos · Argentina</p>
+      <p style="font-size:12px;color:rgba(255,255,255,0.25);">Facturación electrónica con webservice oficial de ARCA</p>
+    </div>
   </div>
 </footer>
 
