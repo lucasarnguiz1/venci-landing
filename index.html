@@ -543,6 +543,46 @@
   </div>
 </section>
 
+<!-- EMPRESAS QUE LO USAN — debajo del hero -->
+<div style="background:var(--azul);padding:0 5% 40px;">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:32px;">
+      <div style="font-size:11px;font-weight:600;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:0.1em;text-align:center;margin-bottom:24px;">Ya facturan con VenciApp</div>
+      <div style="display:flex;justify-content:center;align-items:center;gap:32px;flex-wrap:wrap;">
+        
+        <!-- Osis Artes Gráficas -->
+        <div style="display:flex;align-items:center;gap:12px;padding:14px 20px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:12px;transition:border-color 0.2s;" onmouseover="this.style.borderColor='rgba(61,170,138,0.4)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.1)'">
+          <!-- Placeholder logo — reemplazar con <img> cuando llegue el logo real -->
+          <div id="logo-osis" style="width:40px;height:40px;border-radius:8px;background:rgba(61,170,138,0.15);border:1px solid rgba(61,170,138,0.3);display:flex;align-items:center;justify-content:center;font-family:'Rubik',sans-serif;font-weight:800;font-size:13px;color:#3DAA8A;flex-shrink:0;">OA</div>
+          <div>
+            <div style="font-weight:700;font-size:13px;color:rgba(255,255,255,0.85);">Osis Artes Gráficas</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.35);">Imprenta · Entre Ríos</div>
+          </div>
+        </div>
+
+        <!-- Estudio Bregant -->
+        <div style="display:flex;align-items:center;gap:12px;padding:14px 20px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:12px;transition:border-color 0.2s;" onmouseover="this.style.borderColor='rgba(61,170,138,0.4)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.1)'">
+          <div id="logo-bregant" style="width:40px;height:40px;border-radius:8px;background:rgba(61,170,138,0.15);border:1px solid rgba(61,170,138,0.3);display:flex;align-items:center;justify-content:center;font-family:'Rubik',sans-serif;font-weight:800;font-size:13px;color:#3DAA8A;flex-shrink:0;">EB</div>
+          <div>
+            <div style="font-weight:700;font-size:13px;color:rgba(255,255,255,0.85);">Estudio Bregant</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.35);">Estudio contable · Entre Ríos</div>
+          </div>
+        </div>
+
+        <!-- Tu empresa -->
+        <div style="display:flex;align-items:center;gap:12px;padding:14px 20px;background:transparent;border:1px dashed rgba(255,255,255,0.1);border-radius:12px;opacity:0.5;">
+          <div style="width:40px;height:40px;border-radius:8px;background:rgba(255,255,255,0.04);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">+</div>
+          <div>
+            <div style="font-weight:700;font-size:13px;color:rgba(255,255,255,0.4);">Tu empresa</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.2);">Podría estar acá</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- DIAGONAL -->
 <div class="diagonal" style="background:var(--azul)">
   <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
@@ -1002,10 +1042,10 @@ class Particle {
   reset() {
     this.x  = Math.random() * canvas.width;
     this.y  = Math.random() * canvas.height;
-    this.vx = (Math.random() - 0.5) * 0.3;
-    this.vy = (Math.random() - 0.5) * 0.3;
-    this.r  = Math.random() * 1.5 + 0.5;
-    this.alpha = Math.random() * 0.4 + 0.1;
+    this.vx = (Math.random() - 0.5) * 0.5;
+    this.vy = (Math.random() - 0.5) * 0.5;
+    this.r  = Math.random() * 2.5 + 1;
+    this.alpha = Math.random() * 0.6 + 0.2;
   }
   update() {
     this.x += this.vx;
@@ -1020,7 +1060,7 @@ class Particle {
   }
 }
 
-for (let i = 0; i < 80; i++) particles.push(new Particle());
+for (let i = 0; i < 130; i++) particles.push(new Particle());
 
 // Líneas entre partículas cercanas
 function drawLines() {
@@ -1029,11 +1069,11 @@ function drawLines() {
       const dx = particles[i].x - particles[j].x;
       const dy = particles[i].y - particles[j].y;
       const d = Math.sqrt(dx*dx + dy*dy);
-      if (d < 100) {
+      if (d < 120) {
         ctx.beginPath();
         ctx.moveTo(particles[i].x, particles[i].y);
         ctx.lineTo(particles[j].x, particles[j].y);
-        ctx.strokeStyle = `rgba(61,170,138,${0.06 * (1 - d/100)})`;
+        ctx.strokeStyle = `rgba(61,170,138,${0.18 * (1 - d/100)})`;
         ctx.lineWidth = 0.5;
         ctx.stroke();
       }
