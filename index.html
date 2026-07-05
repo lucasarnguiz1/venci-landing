@@ -614,61 +614,109 @@
   </div>
 </div>
 
-<!-- PLANES -->
-<section class="planes" id="planes">
-  <div class="planes-inner">
-    <div class="sec-label reveal">Planes y precios</div>
-    <h2 class="reveal">Empezá gratis.<br>Crecé cuando quieras.</h2>
-    <p class="sec-sub reveal">30 días de prueba gratuita, sin tarjeta de crédito. Después elegís el plan que se adapta a tu estudio.</p>
-    <div class="planes-grid">
-      <div class="plan">
-        <div class="plan-nombre">Básico</div>
-        <div class="plan-precio"><div class="plan-num">$15.000</div><div class="plan-mes">/mes</div></div>
-        <div class="plan-limite">Hasta 50 facturas/mes</div>
-        <ul class="plan-features">
-          <li>Hasta 5 clientes activos</li>
-          <li>Lectura de PDF de Mercado Pago</li>
-          <li>Emisión directa a ARCA</li>
-          <li>Historial con CAE</li>
-          <li>Soporte por email</li>
-        </ul>
-        <a href="/app?registro=true&plan=basico" class="plan-cta ghost">Empezar gratis</a>
-        <p class="plan-gratis">30 días sin cargo</p>
+<!-- PRICING CON CALCULADORA -->
+<section id="planes" style="background:#0F2A4D; padding: 80px 5%;">
+  <div style="max-width:760px; margin:0 auto;">
+    <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;color:#3DAA8A;text-transform:uppercase;margin-bottom:12px;">Precios</div>
+    <h2 style="font-family:'Rubik',sans-serif;font-weight:800;font-size:clamp(28px,3.5vw,44px);color:#fff;line-height:1.15;margin-bottom:12px;">
+      Pagás solo por lo que<br><em style="color:#3DAA8A;font-style:normal;">facturás.</em>
+    </h2>
+    <p style="font-size:16px;color:rgba(255,255,255,0.55);margin-bottom:40px;line-height:1.7;max-width:520px;">
+      Sin planes fijos. Sin sorpresas. El 0,50% de tu facturación mensual, con un mínimo de $10.000. Primeros 30 días gratis.
+    </p>
+
+    <!-- Calculadora -->
+    <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(61,170,138,0.25);border-radius:18px;padding:32px;margin-bottom:20px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
+        <span style="font-size:14px;color:rgba(255,255,255,0.6);font-weight:500;">¿Cuánto facturás por mes?</span>
+        <strong id="lp-monto-display" style="font-family:'Rubik',sans-serif;font-size:22px;color:#fff;font-weight:800;">$5.000.000</strong>
       </div>
-      <div class="plan star">
-        <div class="plan-badge">Más popular</div>
-        <div class="plan-nombre">Profesional</div>
-        <div class="plan-precio"><div class="plan-num">$35.000</div><div class="plan-mes">/mes</div></div>
-        <div class="plan-limite">Hasta 200 facturas/mes</div>
-        <ul class="plan-features">
-          <li>Clientes ilimitados</li>
-          <li>MP, NaranjaX y más fuentes</li>
-          <li>Categoría global para lotes</li>
-          <li>Re-emisión de rechazadas</li>
-          <li>Alertas de límite de categoría</li>
-          <li>Soporte prioritario</li>
-        </ul>
-        <a href="/app?registro=true&plan=profesional" class="plan-cta">Empezar gratis</a>
-        <p class="plan-gratis">30 días sin cargo</p>
+      <input type="range" id="lp-slider" min="0" max="16" step="1" value="8"
+        style="width:100%;height:6px;-webkit-appearance:none;appearance:none;background:rgba(255,255,255,0.1);border-radius:3px;outline:none;margin-bottom:8px;cursor:pointer;">
+      <div style="display:flex;justify-content:space-between;font-size:10px;color:rgba(255,255,255,0.3);margin-bottom:24px;">
+        <span>$500k</span><span>$5M</span><span>$20M</span><span>$50M</span><span>$100M+</span>
       </div>
-      <div class="plan">
-        <div class="plan-nombre">Corporativo</div>
-        <div class="plan-precio"><div class="plan-num">$70.000</div><div class="plan-mes">/mes</div></div>
-        <div class="plan-limite">Facturas ilimitadas</div>
-        <ul class="plan-features">
-          <li>Todo lo del Profesional</li>
-          <li>Múltiples usuarios por estudio</li>
-          <li>Exportación a Holistor / CSV</li>
-          <li>Conciliación bancaria</li>
-          <li>Más formatos de PDF (bancos)</li>
-          <li>Soporte por WhatsApp</li>
-        </ul>
-        <a href="/app?registro=true&plan=corporativo" class="plan-cta ghost">Empezar gratis</a>
-        <p class="plan-gratis">30 días sin cargo</p>
+      <div style="height:1px;background:rgba(255,255,255,0.08);margin-bottom:20px;"></div>
+
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.06);">
+        <span style="font-size:13px;color:rgba(255,255,255,0.5);">Facturación mensual</span>
+        <span style="font-size:14px;font-weight:700;color:#fff;" id="lp-facturacion">$5.000.000</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.06);">
+        <span style="font-size:13px;color:rgba(255,255,255,0.5);">0,50% de lo facturado</span>
+        <span style="font-size:14px;font-weight:700;color:#fff;" id="lp-porcentaje">$25.000</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;">
+        <span style="font-size:13px;color:rgba(255,255,255,0.5);">Mínimo mensual</span>
+        <span style="font-size:14px;font-weight:700;color:#fff;">$10.000</span>
+      </div>
+
+      <div style="background:rgba(61,170,138,0.1);border:1px solid rgba(61,170,138,0.3);border-radius:12px;padding:20px 24px;margin-top:20px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:14px;color:rgba(255,255,255,0.7);">Lo que pagás por mes</span>
+          <span id="lp-total" style="font-family:'Rubik',sans-serif;font-size:32px;font-weight:800;color:#3DAA8A;">$25.000</span>
+        </div>
+        <div id="lp-note" style="font-size:11px;color:rgba(255,255,255,0.35);margin-top:6px;">Por cada $1.000 que facturás, pagás $5.</div>
       </div>
     </div>
+
+    <!-- Ejemplos -->
+    <div style="font-size:12px;color:rgba(255,255,255,0.4);text-align:center;margin-bottom:14px;">Tocá un ejemplo para ver el cálculo</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:28px;">
+      <div onclick="lpSetMonto(2000000)" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:14px 12px;text-align:center;cursor:pointer;transition:border-color 0.2s;" onmouseover="this.style.borderColor='rgba(61,170,138,0.4)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'">
+        <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:4px;">Comercio chico</div>
+        <div style="font-size:13px;font-weight:700;color:rgba(255,255,255,0.8);margin-bottom:4px;">$2.000.000/mes</div>
+        <div style="font-size:13px;font-weight:700;color:#3DAA8A;">$10.000/mes</div>
+      </div>
+      <div onclick="lpSetMonto(10000000)" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:14px 12px;text-align:center;cursor:pointer;transition:border-color 0.2s;" onmouseover="this.style.borderColor='rgba(61,170,138,0.4)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'">
+        <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:4px;">Comercio activo</div>
+        <div style="font-size:13px;font-weight:700;color:rgba(255,255,255,0.8);margin-bottom:4px;">$10.000.000/mes</div>
+        <div style="font-size:13px;font-weight:700;color:#3DAA8A;">$50.000/mes</div>
+      </div>
+      <div onclick="lpSetMonto(50000000)" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:14px 12px;text-align:center;cursor:pointer;transition:border-color 0.2s;" onmouseover="this.style.borderColor='rgba(61,170,138,0.4)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'">
+        <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:4px;">Estudio contable</div>
+        <div style="font-size:13px;font-weight:700;color:rgba(255,255,255,0.8);margin-bottom:4px;">$50.000.000/mes</div>
+        <div style="font-size:13px;font-weight:700;color:#3DAA8A;">$250.000/mes</div>
+      </div>
+    </div>
+
+    <a href="/app?registro=true" style="display:block;text-align:center;background:#3DAA8A;color:#fff;border-radius:10px;padding:14px;font-size:15px;font-weight:700;text-decoration:none;transition:opacity 0.15s;" onmouseover="this.style.opacity='0.88'" onmouseout="this.style.opacity='1'">
+      Probarlo gratis 30 días →
+    </a>
   </div>
 </section>
+
+<style>
+#lp-slider::-webkit-slider-thumb {
+  -webkit-appearance:none;width:22px;height:22px;border-radius:50%;
+  background:#3DAA8A;cursor:pointer;border:3px solid #0F2A4D;
+  box-shadow:0 0 0 2px #3DAA8A;
+}
+</style>
+
+<script>
+(function(){
+  var ESCALA=[500000,1000000,1500000,2000000,3000000,4000000,5000000,7000000,10000000,15000000,20000000,30000000,40000000,50000000,60000000,80000000,100000000];
+  function fmt(n){if(n>=1000000)return'$'+Math.round(n/1000000).toLocaleString('es-AR')+'M';if(n>=1000)return'$'+Math.round(n/1000).toLocaleString('es-AR')+'k';return'$'+Math.round(n).toLocaleString('es-AR');}
+  function fmtP(n){return'$'+Math.round(n).toLocaleString('es-AR');}
+  function calc(monto){
+    var pct=monto*0.005;
+    var total=Math.max(pct,10000);
+    document.getElementById('lp-monto-display').textContent=fmt(monto);
+    document.getElementById('lp-facturacion').textContent=fmtP(monto);
+    document.getElementById('lp-porcentaje').textContent=fmtP(pct);
+    document.getElementById('lp-total').textContent=fmtP(total);
+    document.getElementById('lp-note').textContent=pct<10000?'Se aplica el mínimo de $10.000 — el 0,50% daría $'+Math.round(pct).toLocaleString('es-AR'):'Por cada $1.000 que facturás, pagás $5.';
+  }
+  window.lpSetMonto=function(m){
+    var idx=ESCALA.findIndex(function(v){return v>=m;});
+    document.getElementById('lp-slider').value=idx>=0?idx:ESCALA.length-1;
+    calc(m);
+  };
+  document.getElementById('lp-slider').addEventListener('input',function(){calc(ESCALA[parseInt(this.value)]);});
+  calc(ESCALA[8]);
+})();
+</script>
 
 <!-- TESTIMONIO -->
 <section class="testi">
