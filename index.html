@@ -823,186 +823,91 @@
   </div>
 </div>
 
-<!-- PRICING CON CALCULADORA -->
+<!-- PLANES FIJOS -->
 <section id="planes" style="background:#0F2A4D; padding: 80px 5%;">
-  <div style="max-width:760px; margin:0 auto;">
-    <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;color:#3DAA8A;text-transform:uppercase;margin-bottom:12px;">Precios</div>
-    <h2 style="font-family:'Rubik',sans-serif;font-weight:800;font-size:clamp(38px,4.5vw,58px);color:#fff;line-height:1.08;margin-bottom:12px;">
-      Pagás solo por lo que<br><em style="color:#3DAA8A;font-style:normal;">facturás.</em>
+  <div style="max-width:1100px; margin:0 auto;">
+    <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;color:#3DAA8A;text-transform:uppercase;margin-bottom:12px;text-align:center;">Planes y precios</div>
+    <h2 style="font-family:'Rubik',sans-serif;font-weight:800;font-size:clamp(28px,3.5vw,44px);color:#fff;line-height:1.15;margin-bottom:16px;text-align:center;">
+      Un precio fijo.<br><em style="color:#3DAA8A;font-style:normal;">Sin sorpresas.</em>
     </h2>
-    <p style="font-size:16px;color:rgba(255,255,255,0.55);margin-bottom:40px;line-height:1.7;max-width:520px;">
-      Sin planes fijos. Sin sorpresas. El 0,50% de tu facturación mensual, con un mínimo de $10.000. Primeros 30 días gratis.
+    <p style="font-size:16px;color:rgba(255,255,255,0.55);margin-bottom:48px;line-height:1.7;max-width:600px;margin-left:auto;margin-right:auto;text-align:center;">
+      Con VenciApp pagás un plan fijo por mes, sin importar cuánto factures dentro de tu plan. Si crecés, subís de plan automáticamente. No hay porcentajes, no hay sorpresas.
     </p>
 
-    <!-- Calculadora -->
-    <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(61,170,138,0.25);border-radius:18px;padding:32px;margin-bottom:20px;">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
-        <span style="font-size:14px;color:rgba(255,255,255,0.6);font-weight:500;">¿Cuánto facturás por mes?</span>
-        <strong id="lp-monto-display" style="font-family:'Rubik',sans-serif;font-size:22px;color:#fff;font-weight:800;">$5.000.000</strong>
-      </div>
-      <input type="range" id="lp-slider" min="0" max="16" step="1" value="8"
-        style="width:100%;height:6px;-webkit-appearance:none;appearance:none;background:rgba(255,255,255,0.1);border-radius:3px;outline:none;margin-bottom:8px;cursor:pointer;">
-      <div style="display:flex;justify-content:space-between;font-size:10px;color:rgba(255,255,255,0.3);margin-bottom:24px;">
-        <span>$500k</span><span>$5M</span><span>$20M</span><span>$50M</span><span>$100M+</span>
-      </div>
-      <div style="height:1px;background:rgba(255,255,255,0.08);margin-bottom:20px;"></div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
 
-      <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.06);">
-        <span style="font-size:13px;color:rgba(255,255,255,0.5);">Facturación mensual</span>
-        <span style="font-size:14px;font-weight:700;color:#fff;" id="lp-facturacion">$5.000.000</span>
-      </div>
-      <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.06);">
-        <span style="font-size:13px;color:rgba(255,255,255,0.5);">0,50% de lo facturado</span>
-        <span style="font-size:14px;font-weight:700;color:#fff;" id="lp-porcentaje">$25.000</span>
-      </div>
-      <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;">
-        <span style="font-size:13px;color:rgba(255,255,255,0.5);">Mínimo mensual</span>
-        <span style="font-size:14px;font-weight:700;color:#fff;">$10.000</span>
-      </div>
-
-      <div style="background:rgba(61,170,138,0.1);border:1px solid rgba(61,170,138,0.3);border-radius:12px;padding:20px 24px;margin-top:20px;">
-        <div style="display:flex;justify-content:space-between;align-items:center;">
-          <span style="font-size:14px;color:rgba(255,255,255,0.7);">Lo que pagás por mes</span>
-          <span id="lp-total" style="font-family:'Rubik',sans-serif;font-size:32px;font-weight:800;color:#3DAA8A;">$25.000</span>
+      <!-- BÁSICO -->
+      <div style="background:rgba(255,255,255,0.04);border:1.5px solid rgba(255,255,255,0.1);border-radius:18px;padding:32px 28px;display:flex;flex-direction:column;transition:border-color 0.2s,transform 0.2s;" onmouseover="this.style.borderColor='rgba(61,170,138,0.5)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.1)';this.style.transform='translateY(0)'">
+        <div style="font-size:12px;font-weight:700;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:14px;">Básico</div>
+        <div style="display:flex;align-items:baseline;gap:4px;margin-bottom:10px;">
+          <div style="font-family:'Rubik',sans-serif;font-weight:800;font-size:40px;color:#fff;">$15.000</div>
+          <div style="font-size:14px;color:rgba(255,255,255,0.4);">/mes</div>
         </div>
-        <div id="lp-note" style="font-size:11px;color:rgba(255,255,255,0.35);margin-top:6px;">Por cada $1.000 que facturás, pagás $5.</div>
+        <div style="font-size:13px;font-weight:600;color:#3DAA8A;background:rgba(61,170,138,0.12);padding:5px 12px;border-radius:6px;display:inline-block;margin-bottom:20px;">Hasta $5.000.000/mes</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:28px;flex:1;">
+          <li style="font-size:13.5px;color:rgba(255,255,255,0.55);display:flex;gap:8px;"><span style="color:#3DAA8A;font-weight:700;">✓</span>Hasta 5 clientes activos</li>
+          <li style="font-size:13.5px;color:rgba(255,255,255,0.55);display:flex;gap:8px;"><span style="color:#3DAA8A;font-weight:700;">✓</span>PDF de Mercado Pago y NaranjaX</li>
+          <li style="font-size:13.5px;color:rgba(255,255,255,0.55);display:flex;gap:8px;"><span style="color:#3DAA8A;font-weight:700;">✓</span>Emisión directa a ARCA</li>
+          <li style="font-size:13.5px;color:rgba(255,255,255,0.55);display:flex;gap:8px;"><span style="color:#3DAA8A;font-weight:700;">✓</span>Historial con CAE</li>
+          <li style="font-size:13.5px;color:rgba(255,255,255,0.55);display:flex;gap:8px;"><span style="color:#3DAA8A;font-weight:700;">✓</span>Soporte por email</li>
+        </ul>
+        <a href="https://venci-frontend-production.up.railway.app?registro=true" style="display:block;text-align:center;background:transparent;color:#3DAA8A;border:1.5px solid #3DAA8A;border-radius:10px;padding:13px;font-size:14px;font-weight:700;text-decoration:none;transition:background 0.15s,color 0.15s;" onmouseover="this.style.background='#3DAA8A';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='#3DAA8A'">Empezar gratis</a>
+        <p style="text-align:center;font-size:12px;color:rgba(255,255,255,0.25);margin-top:8px;">30 días sin cargo</p>
       </div>
+
+      <!-- PROFESIONAL -->
+      <div style="background:linear-gradient(180deg,rgba(61,170,138,0.08) 0%,rgba(255,255,255,0.04) 100%);border:1.5px solid #3DAA8A;border-radius:18px;padding:32px 28px;display:flex;flex-direction:column;position:relative;transform:translateY(-4px);">
+        <div style="position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:#3DAA8A;color:#fff;font-size:11px;font-weight:700;padding:4px 16px;border-radius:20px;white-space:nowrap;">Más popular</div>
+        <div style="font-size:12px;font-weight:700;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:14px;">Profesional</div>
+        <div style="display:flex;align-items:baseline;gap:4px;margin-bottom:10px;">
+          <div style="font-family:'Rubik',sans-serif;font-weight:800;font-size:40px;color:#fff;">$25.000</div>
+          <div style="font-size:14px;color:rgba(255,255,255,0.4);">/mes</div>
+        </div>
+        <div style="font-size:13px;font-weight:600;color:#3DAA8A;background:rgba(61,170,138,0.12);padding:5px 12px;border-radius:6px;display:inline-block;margin-bottom:20px;">Hasta $15.000.000/mes</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:28px;flex:1;">
+          <li style="font-size:13.5px;color:rgba(255,255,255,0.55);display:flex;gap:8px;"><span style="color:#3DAA8A;font-weight:700;">✓</span>Clientes ilimitados</li>
+          <li style="font-size:13.5px;color:rgba(255,255,255,0.55);display:flex;gap:8px;"><span style="color:#3DAA8A;font-weight:700;">✓</span>MP, NaranjaX y más fuentes</li>
+          <li style="font-size:13.5px;color:rgba(255,255,255,0.55);display:flex;gap:8px;"><span style="color:#3DAA8A;font-weight:700;">✓</span>Categoría global para lotes</li>
+          <li style="font-size:13.5px;color:rgba(255,255,255,0.55);display:flex;gap:8px;"><span style="color:#3DAA8A;font-weight:700;">✓</span>Re-emisión de rechazadas</li>
+          <li style="font-size:13.5px;color:rgba(255,255,255,0.55);display:flex;gap:8px;"><span style="color:#3DAA8A;font-weight:700;">✓</span>Alertas de límite automáticas</li>
+          <li style="font-size:13.5px;color:rgba(255,255,255,0.55);display:flex;gap:8px;"><span style="color:#3DAA8A;font-weight:700;">✓</span>Soporte prioritario</li>
+        </ul>
+        <a href="https://venci-frontend-production.up.railway.app?registro=true" style="display:block;text-align:center;background:#3DAA8A;color:#fff;border-radius:10px;padding:13px;font-size:14px;font-weight:700;text-decoration:none;transition:opacity 0.15s;" onmouseover="this.style.opacity='0.88'" onmouseout="this.style.opacity='1'">Empezar gratis</a>
+        <p style="text-align:center;font-size:12px;color:rgba(255,255,255,0.25);margin-top:8px;">30 días sin cargo</p>
+      </div>
+
+      <!-- CORPORATIVO -->
+      <div style="background:rgba(255,255,255,0.04);border:1.5px solid rgba(255,255,255,0.1);border-radius:18px;padding:32px 28px;display:flex;flex-direction:column;transition:border-color 0.2s,transform 0.2s;" onmouseover="this.style.borderColor='rgba(61,170,138,0.5)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.1)';this.style.transform='translateY(0)'">
+        <div style="font-size:12px;font-weight:700;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:14px;">Corporativo</div>
+        <div style="display:flex;align-items:baseline;gap:4px;margin-bottom:10px;">
+          <div style="font-family:'Rubik',sans-serif;font-weight:800;font-size:40px;color:#fff;">$40.000</div>
+          <div style="font-size:14px;color:rgba(255,255,255,0.4);">/mes</div>
+        </div>
+        <div style="font-size:13px;font-weight:600;color:#3DAA8A;background:rgba(61,170,138,0.12);padding:5px 12px;border-radius:6px;display:inline-block;margin-bottom:20px;">Facturación ilimitada</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:28px;flex:1;">
+          <li style="font-size:13.5px;color:rgba(255,255,255,0.55);display:flex;gap:8px;"><span style="color:#3DAA8A;font-weight:700;">✓</span>Todo lo del Profesional</li>
+          <li style="font-size:13.5px;color:rgba(255,255,255,0.55);display:flex;gap:8px;"><span style="color:#3DAA8A;font-weight:700;">✓</span>Sin límite de facturación</li>
+          <li style="font-size:13.5px;color:rgba(255,255,255,0.55);display:flex;gap:8px;"><span style="color:#3DAA8A;font-weight:700;">✓</span>Múltiples usuarios por estudio</li>
+          <li style="font-size:13.5px;color:rgba(255,255,255,0.55);display:flex;gap:8px;"><span style="color:#3DAA8A;font-weight:700;">✓</span>Exportación a Holistor / CSV</li>
+          <li style="font-size:13.5px;color:rgba(255,255,255,0.55);display:flex;gap:8px;"><span style="color:#3DAA8A;font-weight:700;">✓</span>Conciliación bancaria</li>
+          <li style="font-size:13.5px;color:rgba(255,255,255,0.55);display:flex;gap:8px;"><span style="color:#3DAA8A;font-weight:700;">✓</span>Soporte por WhatsApp</li>
+        </ul>
+        <a href="https://venci-frontend-production.up.railway.app?registro=true" style="display:block;text-align:center;background:transparent;color:#3DAA8A;border:1.5px solid #3DAA8A;border-radius:10px;padding:13px;font-size:14px;font-weight:700;text-decoration:none;transition:background 0.15s,color 0.15s;" onmouseover="this.style.background='#3DAA8A';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='#3DAA8A'">Empezar gratis</a>
+        <p style="text-align:center;font-size:12px;color:rgba(255,255,255,0.25);margin-top:8px;">30 días sin cargo</p>
+      </div>
+
     </div>
 
-    <!-- Ejemplos -->
-    <div style="font-size:12px;color:rgba(255,255,255,0.4);text-align:center;margin-bottom:14px;">Tocá un ejemplo para ver el cálculo</div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:28px;">
-      <div onclick="lpSetMonto(2000000)" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:14px 12px;text-align:center;cursor:pointer;transition:border-color 0.2s;" onmouseover="this.style.borderColor='rgba(61,170,138,0.4)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'">
-        <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:4px;">Comercio chico</div>
-        <div style="font-size:13px;font-weight:700;color:rgba(255,255,255,0.8);margin-bottom:4px;">$2.000.000/mes</div>
-        <div style="font-size:13px;font-weight:700;color:#3DAA8A;">$10.000/mes</div>
-      </div>
-      <div onclick="lpSetMonto(10000000)" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:14px 12px;text-align:center;cursor:pointer;transition:border-color 0.2s;" onmouseover="this.style.borderColor='rgba(61,170,138,0.4)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'">
-        <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:4px;">Comercio activo</div>
-        <div style="font-size:13px;font-weight:700;color:rgba(255,255,255,0.8);margin-bottom:4px;">$10.000.000/mes</div>
-        <div style="font-size:13px;font-weight:700;color:#3DAA8A;">$50.000/mes</div>
-      </div>
-      <div onclick="lpSetMonto(50000000)" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:14px 12px;text-align:center;cursor:pointer;transition:border-color 0.2s;" onmouseover="this.style.borderColor='rgba(61,170,138,0.4)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'">
-        <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:4px;">Estudio contable</div>
-        <div style="font-size:13px;font-weight:700;color:rgba(255,255,255,0.8);margin-bottom:4px;">$50.000.000/mes</div>
-        <div style="font-size:13px;font-weight:700;color:#3DAA8A;">$250.000/mes</div>
-      </div>
+    <!-- Nota de upgrade automático -->
+    <div style="margin-top:28px;background:rgba(61,170,138,0.08);border:1px solid rgba(61,170,138,0.2);border-radius:12px;padding:16px 24px;text-align:center;">
+      <p style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.7;">
+        📈 <strong style="color:rgba(255,255,255,0.85);">Upgrade automático:</strong> Si superás el límite de tu plan, pasás al siguiente automáticamente ese mes y te avisamos. El mes siguiente volvés a tu plan original, o podés quedarte en el nuevo.
+      </p>
     </div>
 
-    <a href="https://venci-frontend-production.up.railway.app?registro=true" style="display:block;text-align:center;background:#3DAA8A;color:#fff;border-radius:10px;padding:14px;font-size:15px;font-weight:700;text-decoration:none;transition:opacity 0.15s;" onmouseover="this.style.opacity='0.88'" onmouseout="this.style.opacity='1'">
-      Probarlo gratis 30 días →
-    </a>
   </div>
 </section>
 
-<style>
-#lp-slider::-webkit-slider-thumb {
-  -webkit-appearance:none;width:22px;height:22px;border-radius:50%;
-  background:#3DAA8A;cursor:pointer;border:3px solid #0F2A4D;
-  box-shadow:0 0 0 2px #3DAA8A;
-}
-</style>
-
-<script>
-(function(){
-  var ESCALA=[500000,1000000,1500000,2000000,3000000,4000000,5000000,7000000,10000000,15000000,20000000,30000000,40000000,50000000,60000000,80000000,100000000];
-  function fmt(n){if(n>=1000000)return'$'+Math.round(n/1000000).toLocaleString('es-AR')+'M';if(n>=1000)return'$'+Math.round(n/1000).toLocaleString('es-AR')+'k';return'$'+Math.round(n).toLocaleString('es-AR');}
-  function fmtP(n){return'$'+Math.round(n).toLocaleString('es-AR');}
-  function calc(monto){
-    var pct=monto*0.005;
-    var total=Math.max(pct,10000);
-    document.getElementById('lp-monto-display').textContent=fmt(monto);
-    document.getElementById('lp-facturacion').textContent=fmtP(monto);
-    document.getElementById('lp-porcentaje').textContent=fmtP(pct);
-    document.getElementById('lp-total').textContent=fmtP(total);
-    document.getElementById('lp-note').textContent=pct<10000?'Se aplica el mínimo de $10.000 — el 0,50% daría $'+Math.round(pct).toLocaleString('es-AR'):'Por cada $1.000 que facturás, pagás $5.';
-  }
-  window.lpSetMonto=function(m){
-    var idx=ESCALA.findIndex(function(v){return v>=m;});
-    document.getElementById('lp-slider').value=idx>=0?idx:ESCALA.length-1;
-    calc(m);
-  };
-  document.getElementById('lp-slider').addEventListener('input',function(){calc(ESCALA[parseInt(this.value)]);});
-  calc(ESCALA[8]);
-})();
-</script>
-
-<!-- CLIENTES -->
-<!-- ERRORES COMUNES -->
-<section style="background:var(--azul);padding:80px 5%;" id="errores">
-  <div style="max-width:1100px;margin:0 auto;">
-    <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;color:#3DAA8A;text-transform:uppercase;margin-bottom:14px;">Evitá estos errores</div>
-    <h2 style="font-family:'Rubik',sans-serif;font-weight:800;font-size:clamp(26px,3vw,38px);color:#fff;line-height:1.2;margin-bottom:12px;">Los 3 rechazos más comunes<br>y cómo evitarlos</h2>
-    <p style="font-size:15px;color:rgba(255,255,255,0.5);margin-bottom:40px;max-width:520px;line-height:1.7;">ARCA tiene reglas estrictas. Estos son los errores que más vemos — y cómo VenciApp te ayuda a evitarlos.</p>
-
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;">
-
-      <!-- Error 1 -->
-      <div style="background:#0D1F35;border-radius:14px;border:1px solid rgba(61,170,138,0.2);overflow:hidden;">
-        <div style="background:#091729;padding:10px 14px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(255,255,255,0.05);">
-          <div style="width:10px;height:10px;border-radius:50%;background:#FF5F57;"></div>
-          <div style="width:10px;height:10px;border-radius:50%;background:#FEBC2E;"></div>
-          <div style="width:10px;height:10px;border-radius:50%;background:#28C840;"></div>
-          <span style="font-size:10px;color:rgba(255,255,255,0.3);font-family:monospace;margin-left:4px;">Error ARCA · Código 10015</span>
-        </div>
-        <div style="padding:18px;">
-          <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
-            <div style="width:32px;height:32px;border-radius:8px;background:rgba(224,82,78,0.15);border:1px solid rgba(224,82,78,0.3);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">📅</div>
-            <div style="font-size:13px;font-weight:700;color:#E0524E;">Fecha fuera de rango</div>
-          </div>
-          <p style="font-size:12px;color:rgba(255,255,255,0.5);line-height:1.7;margin-bottom:14px;">ARCA solo acepta facturas de <strong style="color:rgba(255,255,255,0.8);">hasta 5 días atrás</strong> para Productos y <strong style="color:rgba(255,255,255,0.8);">10 días</strong> para Servicios. Si el movimiento es más viejo, ARCA lo rechaza.</p>
-          <div style="background:rgba(61,170,138,0.08);border:1px solid rgba(61,170,138,0.2);border-radius:8px;padding:10px 12px;display:flex;gap:8px;align-items:flex-start;">
-            <span style="color:#3DAA8A;font-size:13px;flex-shrink:0;">✓</span>
-            <span style="font-size:11px;color:rgba(255,255,255,0.6);">VenciApp detecta automáticamente las facturas rechazadas y las muestra en el Historial con el botón <strong style="color:#3DAA8A;">"Re-emitir"</strong>.</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Error 2 -->
-      <div style="background:#0D1F35;border-radius:14px;border:1px solid rgba(61,170,138,0.2);overflow:hidden;">
-        <div style="background:#091729;padding:10px 14px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(255,255,255,0.05);">
-          <div style="width:10px;height:10px;border-radius:50%;background:#FF5F57;"></div>
-          <div style="width:10px;height:10px;border-radius:50%;background:#FEBC2E;"></div>
-          <div style="width:10px;height:10px;border-radius:50%;background:#28C840;"></div>
-          <span style="font-size:10px;color:rgba(255,255,255,0.3);font-family:monospace;margin-left:4px;">Error ARCA · Código 10016</span>
-        </div>
-        <div style="padding:18px;">
-          <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
-            <div style="width:32px;height:32px;border-radius:8px;background:rgba(224,82,78,0.15);border:1px solid rgba(224,82,78,0.3);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">🔢</div>
-            <div style="font-size:13px;font-weight:700;color:#E0524E;">Orden cronológico roto</div>
-          </div>
-          <p style="font-size:12px;color:rgba(255,255,255,0.5);line-height:1.7;margin-bottom:14px;">ARCA exige que las facturas se emitan <strong style="color:rgba(255,255,255,0.8);">en orden cronológico</strong>. Si ya emitiste una del 25/06 y después intentás emitir una del 22/06, la rechaza.</p>
-          <div style="background:rgba(61,170,138,0.08);border:1px solid rgba(61,170,138,0.2);border-radius:8px;padding:10px 12px;display:flex;gap:8px;align-items:flex-start;">
-            <span style="color:#3DAA8A;font-size:13px;flex-shrink:0;">✓</span>
-            <span style="font-size:11px;color:rgba(255,255,255,0.6);">VenciApp ordena automáticamente los movimientos del PDF de <strong style="color:#3DAA8A;">más antiguo a más reciente</strong> antes de emitir.</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Error 3 -->
-      <div style="background:#0D1F35;border-radius:14px;border:1px solid rgba(61,170,138,0.2);overflow:hidden;">
-        <div style="background:#091729;padding:10px 14px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(255,255,255,0.05);">
-          <div style="width:10px;height:10px;border-radius:50%;background:#FF5F57;"></div>
-          <div style="width:10px;height:10px;border-radius:50%;background:#FEBC2E;"></div>
-          <div style="width:10px;height:10px;border-radius:50%;background:#28C840;"></div>
-          <span style="font-size:10px;color:rgba(255,255,255,0.3);font-family:monospace;margin-left:4px;">Error usuario · PDF equivocado</span>
-        </div>
-        <div style="padding:18px;">
-          <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
-            <div style="width:32px;height:32px;border-radius:8px;background:rgba(224,82,78,0.15);border:1px solid rgba(224,82,78,0.3);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">📄</div>
-            <div style="font-size:13px;font-weight:700;color:#E0524E;">PDF del cliente equivocado</div>
-          </div>
-          <p style="font-size:12px;color:rgba(255,255,255,0.5);line-height:1.7;margin-bottom:14px;">Con muchos clientes es fácil subir el PDF de uno en el perfil de otro. Eso genera facturas <strong style="color:rgba(255,255,255,0.8);">con el CUIT incorrecto</strong>, que ARCA registra mal y no tienen solución fácil.</p>
-          <div style="background:rgba(61,170,138,0.08);border:1px solid rgba(61,170,138,0.2);border-radius:8px;padding:10px 12px;display:flex;gap:8px;align-items:flex-start;">
-            <span style="color:#3DAA8A;font-size:13px;flex-shrink:0;">✓</span>
-            <span style="font-size:11px;color:rgba(255,255,255,0.6);">VenciApp verifica el <strong style="color:#3DAA8A;">CUIT del PDF</strong> contra el cliente seleccionado y avisa antes de que se emita cualquier factura.</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
 
 
 
@@ -1051,7 +956,7 @@
           ¿Cuánto cuesta VenciApp?
           <span style="color:#3DAA8A;font-size:20px;flex-shrink:0;">+</span>
         </summary>
-        <p style="font-size:14px;color:var(--dim);line-height:1.7;margin-top:12px;">VenciApp cobra el 0,50% de tu facturación mensual, con un mínimo de $10.000/mes. Sin planes fijos ni sorpresas — si facturás $10.000.000 por mes, pagás $50.000. Los primeros 30 días son completamente gratis, sin tarjeta de crédito.</p>
+        <p style="font-size:14px;color:var(--dim);line-height:1.7;margin-top:12px;">VenciApp tiene tres planes fijos: Básico $15.000/mes (hasta $5M de facturación), Profesional $25.000/mes (hasta $15M) y Corporativo $40.000/mes (ilimitado). Si superás el límite de tu plan, subís automáticamente al siguiente ese mes. Los primeros 30 días son completamente gratis, sin tarjeta de crédito.</p>
       </details>
 
       <details style="background:white;border:1px solid var(--border);border-radius:12px;padding:20px 24px;cursor:pointer;">
