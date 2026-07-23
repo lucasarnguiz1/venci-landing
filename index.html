@@ -828,13 +828,52 @@
   <div style="max-width:1100px; margin:0 auto;">
     <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;color:#3DAA8A;text-transform:uppercase;margin-bottom:12px;text-align:center;">Planes y precios</div>
     <h2 style="font-family:'Rubik',sans-serif;font-weight:800;font-size:clamp(28px,3.5vw,44px);color:#fff;line-height:1.15;margin-bottom:16px;text-align:center;">
-      Un precio fijo.<br><em style="color:#3DAA8A;font-style:normal;">Sin sorpresas.</em>
+      Un precio justo.<br><em style="color:#3DAA8A;font-style:normal;">Para cada uno.</em>
     </h2>
-    <p style="font-size:16px;color:rgba(255,255,255,0.55);margin-bottom:48px;line-height:1.7;max-width:600px;margin-left:auto;margin-right:auto;text-align:center;">
-      Sabés exactamente cuánto pagás cada mes. Sin porcentajes, sin sorpresas. Por menos de lo que gastás en un almuerzo de trabajo, tu facturación corre sola.
+    <p style="font-size:16px;color:rgba(255,255,255,0.55);margin-bottom:36px;line-height:1.7;max-width:600px;margin-left:auto;margin-right:auto;text-align:center;">
+      Los estudios contables pagan un precio fijo. Los comercios pagan según lo que facturan. Sin sorpresas, sin letras chicas.
     </p>
 
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
+    <!-- Toggle Contador / Comercio -->
+    <div style="display:flex;justify-content:center;margin-bottom:36px;">
+      <div style="display:flex;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:30px;padding:4px;gap:4px;">
+        <button id="btn-contador" onclick="togglePlan('contador')"
+          style="padding:8px 24px;border-radius:24px;border:none;background:#3DAA8A;color:#fff;font-size:13px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;transition:all 0.2s;">
+          🧾 Soy contador
+        </button>
+        <button id="btn-comercio" onclick="togglePlan('comercio')"
+          style="padding:8px 24px;border-radius:24px;border:none;background:transparent;color:rgba(255,255,255,0.5);font-size:13px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;transition:all 0.2s;">
+          🏪 Soy comercio
+        </button>
+      </div>
+    </div>
+
+    <!-- PLANES CONTADOR -->
+    <div id="planes-contador" style="display:grid;grid-template-columns:1fr;gap:20px;max-width:500px;margin:0 auto;">
+      <div style="background:linear-gradient(160deg,rgba(61,170,138,0.15) 0%,rgba(61,170,138,0.05) 100%);border:2px solid #3DAA8A;border-radius:20px;padding:40px 36px;text-align:center;box-shadow:0 8px 40px rgba(61,170,138,0.2);">
+        <div style="font-size:11px;font-weight:800;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:16px;">Plan Estudio Contable</div>
+        <div style="display:flex;align-items:baseline;gap:4px;justify-content:center;margin-bottom:6px;">
+          <div style="font-family:'Rubik',sans-serif;font-weight:800;font-size:52px;color:#3DAA8A;">$15.000</div>
+          <div style="font-size:14px;color:rgba(255,255,255,0.4);">/mes</div>
+        </div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.35);margin-bottom:10px;">menos de $500 por día</div>
+        <div style="font-size:13px;font-weight:600;color:#3DAA8A;background:rgba(61,170,138,0.12);padding:6px 16px;border-radius:6px;display:inline-block;margin-bottom:24px;">Clientes y facturas ilimitadas</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:32px;text-align:left;">
+          <li style="font-size:13.5px;color:rgba(255,255,255,0.6);display:flex;gap:8px;"><span style="color:#3DAA8A;font-weight:700;flex-shrink:0;">✓</span>Todos tus clientes en un solo panel</li>
+          <li style="font-size:13.5px;color:rgba(255,255,255,0.6);display:flex;gap:8px;"><span style="color:#3DAA8A;font-weight:700;flex-shrink:0;">✓</span>PDF de Mercado Pago y NaranjaX</li>
+          <li style="font-size:13.5px;color:rgba(255,255,255,0.6);display:flex;gap:8px;"><span style="color:#3DAA8A;font-weight:700;flex-shrink:0;">✓</span>Emisión masiva a ARCA con CAE real</li>
+          <li style="font-size:13.5px;color:rgba(255,255,255,0.6);display:flex;gap:8px;"><span style="color:#3DAA8A;font-weight:700;flex-shrink:0;">✓</span>Historial completo por cliente</li>
+          <li style="font-size:13.5px;color:rgba(255,255,255,0.6);display:flex;gap:8px;"><span style="color:#3DAA8A;font-weight:700;flex-shrink:0;">✓</span>Soporte por email y WhatsApp</li>
+        </ul>
+        <a href="https://app.venciapp.com.ar?registro=true" style="display:block;text-align:center;background:linear-gradient(135deg,#2E8B6F,#3DAA8A);color:#fff;border-radius:10px;padding:14px;font-size:15px;font-weight:700;text-decoration:none;box-shadow:0 4px 20px rgba(61,170,138,0.3);">
+          Empezar gratis 14 días →
+        </a>
+        <p style="text-align:center;font-size:12px;color:rgba(255,255,255,0.25);margin-top:8px;">Sin tarjeta de crédito</p>
+      </div>
+    </div>
+
+    <!-- PLANES COMERCIO -->
+    <div id="planes-comercio" style="display:none;grid-template-columns:repeat(3,1fr);gap:20px;">
 
       <!-- BÁSICO -->
       <div style="background:rgba(255,255,255,0.04);border:1.5px solid rgba(255,255,255,0.1);border-radius:18px;padding:32px 28px;display:flex;flex-direction:column;transition:border-color 0.2s,transform 0.2s;" onmouseover="this.style.borderColor='rgba(61,170,138,0.5)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.1)';this.style.transform='translateY(0)'">
@@ -905,10 +944,12 @@
 
     </div>
 
-    <!-- Nota de upgrade automático -->
-    <div style="margin-top:28px;background:rgba(61,170,138,0.08);border:1px solid rgba(61,170,138,0.2);border-radius:12px;padding:16px 24px;text-align:center;">
+    </div><!-- cierre planes-comercio -->
+
+    <!-- Nota de upgrade automático — solo para comercios -->
+    <div id="nota-upgrade" style="display:none;margin-top:28px;background:rgba(61,170,138,0.08);border:1px solid rgba(61,170,138,0.2);border-radius:12px;padding:16px 24px;text-align:center;">
       <p style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.7;">
-        📈 <strong style="color:rgba(255,255,255,0.85);">Upgrade automático:</strong> Si superás el límite de tu plan, pasás al siguiente automáticamente ese mes y te avisamos. El mes siguiente volvés a tu plan original, o podés quedarte en el nuevo.
+        📈 <strong style="color:rgba(255,255,255,0.85);">Upgrade automático:</strong> Si superás el límite de tu plan, pasás al siguiente automáticamente ese mes y te avisamos. El mes siguiente volvés a tu plan original.
       </p>
     </div>
 
@@ -1347,6 +1388,33 @@ window.addEventListener('scroll', () => {
   document.getElementById('nav').style.background =
     window.scrollY > 20 ? 'rgba(10,30,54,0.98)' : 'rgba(10,30,54,0.95)';
 });
+
+// ── TOGGLE PLANES CONTADOR/COMERCIO ──────────────────────────────────────────
+function togglePlan(tipo) {
+  const btnContador = document.getElementById('btn-contador');
+  const btnComercio = document.getElementById('btn-comercio');
+  const planesContador = document.getElementById('planes-contador');
+  const planesComercio = document.getElementById('planes-comercio');
+  const notaUpgrade = document.getElementById('nota-upgrade');
+
+  if (tipo === 'contador') {
+    btnContador.style.background = '#3DAA8A';
+    btnContador.style.color = '#fff';
+    btnComercio.style.background = 'transparent';
+    btnComercio.style.color = 'rgba(255,255,255,0.5)';
+    planesContador.style.display = 'grid';
+    planesComercio.style.display = 'none';
+    notaUpgrade.style.display = 'none';
+  } else {
+    btnComercio.style.background = '#3DAA8A';
+    btnComercio.style.color = '#fff';
+    btnContador.style.background = 'transparent';
+    btnContador.style.color = 'rgba(255,255,255,0.5)';
+    planesContador.style.display = 'none';
+    planesComercio.style.display = 'grid';
+    notaUpgrade.style.display = 'block';
+  }
+}
 
 // ── MOCKUP TABS ──────────────────────────────────────────────────────────────
 var mockCurrent = 0;
