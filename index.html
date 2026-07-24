@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
   <title>VenciApp — Facturación Electrónica Automática desde Mercado Pago | Argentina</title>
   <meta name="description" content="VenciApp automatiza la facturación electrónica para contadores y monotributistas en Argentina. Subís el PDF de Mercado Pago o NaranjaX, elegís los cobros y emitimos todo a ARCA con CAE real en segundos. Sin errores manuales.">
   <meta name="keywords" content="facturación electrónica Argentina, emitir facturas ARCA, facturar desde Mercado Pago, sistema facturación contadores, factura electrónica monotributistas, CAE ARCA automático, facturación Entre Ríos">
@@ -65,7 +65,9 @@
       --border:  #E2E8EF;
     }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; color: var(--texto); background: var(--blanco); overflow-x: hidden; }
+    html { overflow-x: hidden; max-width: 100%; }
+    body { font-family: 'Inter', sans-serif; color: var(--texto); background: var(--blanco); overflow-x: hidden; max-width: 100%; }
+    * { box-sizing: border-box; }
 
     /* ── NAV ── */
     nav {
@@ -401,55 +403,72 @@
       .nav-btns { gap: 6px; }
 
       /* Hero */
-      .hero { padding: 80px 5% 36px; }
+      .hero { padding: 80px 4% 36px; }
       .hero-inner { grid-template-columns: 1fr; gap: 32px; }
       .hero h1 { font-size: 36px; }
       .hero-sub { font-size: 15px; }
       .mockup-wrap { display: none; }
-      .hero-stats { gap: 20px; flex-wrap: wrap; }
-      .hero-stat-num { font-size: 22px; }
-      .hero-btns { flex-direction: column; }
-      .btn-hero-primary, .btn-hero-ghost { text-align: center; padding: 13px 20px; }
+      .hero-stats { gap: 0; flex-wrap: nowrap; }
+      .hero-stat { padding: 10px 12px; }
+      .hero-stat-num { font-size: 18px; }
+      .hero-btns { flex-direction: column; width: 100%; }
+      .btn-hero-primary, .btn-hero-ghost { text-align: center; padding: 13px 20px; width: 100%; }
 
       /* Empresas debajo del hero */
       .hero > div > div > div:last-child { flex-direction: column; align-items: stretch; gap: 12px; }
 
       /* Secciones */
-      .sec { padding: 48px 5%; }
-      .sec h2 { font-size: 30px; }
-      .dolor-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
-      .dolor-card { padding: 18px 14px; }
+      .sec { padding: 48px 4%; }
+      .sec h2 { font-size: 28px; }
+      .dolor-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .dolor-card { padding: 16px 12px; }
+      .dolor-card svg { width: 56px; height: 56px; }
+      .dolor-card p { font-size: 12px; }
 
       /* Cómo funciona */
-      .como { padding: 48px 5%; }
+      .como { padding: 48px 4%; }
       .pasos { grid-template-columns: 1fr; gap: 16px; }
 
       /* Stats */
-      .stats { padding: 40px 5%; }
-      .stats-inner { grid-template-columns: 1fr; gap: 20px; }
-      .stat-num { font-size: 36px; }
+      .stats { padding: 40px 4%; }
+      .stats-inner { grid-template-columns: 1fr 1fr; gap: 16px; }
+      .stat-num { font-size: 32px; }
 
-      /* Pricing */
+      /* Pricing — 1 columna */
       .planes-grid { grid-template-columns: 1fr; }
 
+      /* Secciones con grid inline de 3 columnas → 1 columna */
+      .resp-3col { grid-template-columns: 1fr !important; }
+
       /* FAQ */
+      details { padding: 16px !important; }
       details summary { font-size: 13px; }
 
-      /* Contacto */
-      #contacto > div > div:nth-child(2) > div:first-child { grid-template-columns: 1fr; }
+      /* Contacto — form en 1 columna */
+      #contacto > div > div:nth-child(2) > div:first-child { grid-template-columns: 1fr !important; }
 
-      /* Footer */
-      footer > div > div:first-child { grid-template-columns: 1fr; gap: 28px; }
-      footer { padding: 36px 5%; }
+      /* Footer — 1 columna */
+      footer > div > div:first-child { grid-template-columns: 1fr !important; gap: 28px; }
+      footer { padding: 36px 4%; }
+
+      /* Errores comunes — 1 columna */
+      .errores-grid { grid-template-columns: 1fr !important; }
+
+      /* Planes inline — 1 columna */
+      #planes > div > div[style*="grid-template-columns: repeat(3"] { grid-template-columns: 1fr !important; }
     }
 
     @media (max-width: 480px) {
-      .hero h1 { font-size: 30px; }
+      .hero h1 { font-size: 26px; }
       .dolor-grid { grid-template-columns: 1fr; }
-      .hero-stats { flex-direction: column; gap: 12px; }
+      .hero-stats { flex-direction: column; gap: 0; }
+      .hero-stat { border-right: none !important; border-bottom: 1px solid rgba(61,170,138,0.1); }
       nav { padding: 0 4%; }
-      .sec { padding: 40px 4%; }
-      .como { padding: 40px 4%; }
+      .sec { padding: 36px 4%; }
+      .como { padding: 36px 4%; }
+      .stats-inner { grid-template-columns: 1fr; }
+      .stat-num { font-size: 28px; }
+      details summary { font-size: 12px; }
     }
 
     /* ── SCROLL REVEAL ── */
@@ -968,7 +987,7 @@
     </h2>
     <p style="font-size:15px;color:rgba(255,255,255,0.5);margin-bottom:48px;text-align:center;line-height:1.7;max-width:520px;margin-left:auto;margin-right:auto;">ARCA rechaza facturas por razones muy específicas. Estos son los tres errores más comunes y cómo evitarlos.</p>
 
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
+    <div class="errores-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
 
       <!-- Error 1: Fecha fuera de rango -->
       <div style="background:rgba(224,82,78,0.06);border:1.5px solid rgba(224,82,78,0.2);border-radius:16px;padding:28px 24px;">
@@ -1225,7 +1244,7 @@ async function enviarTelegram() {
 <!-- FOOTER -->
 <footer style="background:var(--azulD);padding:48px 5%;border-top:1px solid rgba(255,255,255,0.06);">
   <div style="max-width:1100px;margin:0 auto;">
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;margin-bottom:36px;flex-wrap:wrap;">
+    <div class="resp-3col" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;margin-bottom:36px;">
       <!-- Logo y descripción -->
       <div>
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
